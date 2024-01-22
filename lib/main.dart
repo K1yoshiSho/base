@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:sizzle_starter/src/core/utils/logger.dart';
-import 'package:sizzle_starter/src/feature/app/logic/app_runner.dart';
+import 'package:base_starter/src/core/utils/logger.dart';
+import 'package:base_starter/src/feature/app/logic/app_runner.dart';
 
 void main() {
   logger.runLogging(

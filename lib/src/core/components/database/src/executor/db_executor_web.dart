@@ -1,8 +1,8 @@
 import 'dart:async';
 
+import 'package:base_starter/src/core/utils/logger.dart';
 import 'package:drift/drift.dart';
 import 'package:drift/wasm.dart';
-import 'package:sizzle_starter/src/core/utils/logger.dart';
 
 /// {@macro db_executor}
 QueryExecutor createExecutor() => DatabaseConnection.delayed(
