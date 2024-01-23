@@ -1,7 +1,5 @@
 import 'dart:async';
-
-import 'package:base_starter/src/core/utils/app_bloc_observer.dart';
-import 'package:base_starter/src/core/utils/logger.dart';
+import 'package:base_starter/src/core/utils/talker_logger.dart';
 import 'package:base_starter/src/feature/app/widget/app.dart';
 import 'package:base_starter/src/feature/initialization/logic/initialization_processor.dart';
 import 'package:base_starter/src/feature/initialization/widget/initialization_failed_app.dart';
@@ -24,18 +22,13 @@ final class AppRunner with InitializationFactoryImpl {
     binding.deferFirstFrame();
 
     // Override logging
-    FlutterError.onError = logger.logFlutterError;
-    WidgetsBinding.instance.platformDispatcher.onError =
-        logger.logPlatformDispatcherError;
+    await initHandling();
 
     // Setup bloc observer and transformer
-    Bloc.observer = const AppBlocObserver();
     Bloc.transformer = bloc_concurrency.sequential();
-
     final environmentStore = getEnvironmentStore();
 
     final initializationProcessor = InitializationProcessor(
-      trackingManager: createTrackingManager(environmentStore),
       environmentStore: environmentStore,
     );
 
@@ -45,7 +38,8 @@ final class AppRunner with InitializationFactoryImpl {
         // Attach this widget to the root of the tree.
         runApp(App(result: result));
       } catch (e, stackTrace) {
-        logger.error('Initialization failed', error: e, stackTrace: stackTrace);
+        talker.error('Initialization failed');
+        talker.handle(e, stackTrace);
         runApp(
           InitializationFailedApp(
             error: e,

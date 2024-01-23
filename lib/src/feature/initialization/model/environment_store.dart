@@ -7,9 +7,6 @@ class EnvironmentStore {
   /// {@macro environment_store}
   const EnvironmentStore();
 
-  /// The Sentry DSN.
-  String get sentryDsn => const String.fromEnvironment('SENTRY_DSN');
-
   /// The environment.
   Environment get environment {
     var environment = const String.fromEnvironment('ENVIRONMENT');
@@ -22,7 +19,4 @@ class EnvironmentStore {
 
     return Environment.from(environment);
   }
-
-  /// Whether Sentry is enabled.
-  bool get enableTrackingManager => sentryDsn.isNotEmpty;
 }

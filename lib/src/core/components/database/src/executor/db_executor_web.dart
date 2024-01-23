@@ -1,6 +1,5 @@
 import 'dart:async';
-
-import 'package:base_starter/src/core/utils/logger.dart';
+import 'package:base_starter/src/core/utils/talker_logger.dart';
 import 'package:drift/drift.dart';
 import 'package:drift/wasm.dart';
 
@@ -14,7 +13,7 @@ QueryExecutor createExecutor() => DatabaseConnection.delayed(
         );
 
         if (result.missingFeatures.isNotEmpty) {
-          logger.warning(
+          talker.warning(
             'Using ${result.chosenImplementation} due to missing browser '
             'features: ${result.missingFeatures}',
           );

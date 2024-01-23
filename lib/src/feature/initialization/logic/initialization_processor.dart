@@ -1,5 +1,4 @@
-import 'package:base_starter/src/core/utils/logger.dart';
-import 'package:base_starter/src/feature/app/logic/tracking_manager.dart';
+import 'package:base_starter/src/core/utils/talker_logger.dart';
 import 'package:base_starter/src/feature/initialization/model/dependencies.dart';
 import 'package:base_starter/src/feature/initialization/model/environment_store.dart';
 import 'package:base_starter/src/feature/settings/bloc/settings_bloc.dart';
@@ -16,15 +15,13 @@ part 'initialization_factory.dart';
 /// A class which is responsible for processing initialization steps.
 /// {@endtemplate}
 final class InitializationProcessor {
-  final ExceptionTrackingManager _trackingManager;
+  // ignore: unused_field
   final EnvironmentStore _environmentStore;
 
   /// {@macro initialization_processor}
   const InitializationProcessor({
-    required ExceptionTrackingManager trackingManager,
     required EnvironmentStore environmentStore,
-  })  : _trackingManager = trackingManager,
-        _environmentStore = environmentStore;
+  }) : _environmentStore = environmentStore;
 
   Future<Dependencies> _initDependencies() async {
     final sharedPreferences = await SharedPreferences.getInstance();
@@ -70,15 +67,12 @@ final class InitializationProcessor {
   /// before the application starts
   /// (for example, caching or enabling tracking manager)
   Future<InitializationResult> initialize() async {
-    if (_environmentStore.enableTrackingManager) {
-      await _trackingManager.enableReporting();
-    }
     final stopwatch = Stopwatch()..start();
 
-    logger.info('Initializing dependencies...');
+    talker.info('Initializing dependencies...');
     // initialize dependencies
     final dependencies = await _initDependencies();
-    logger.info('Dependencies initialized');
+    talker.info('Dependencies initialized');
 
     stopwatch.stop();
     final result = InitializationResult(

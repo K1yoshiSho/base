@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:async/async.dart';
 import 'package:base_starter/src/core/components/rest_client/rest_client.dart';
 import 'package:base_starter/src/core/components/rest_client/src/auth/refresh_client.dart';
-import 'package:base_starter/src/core/utils/logger.dart';
+import 'package:base_starter/src/core/utils/talker_logger.dart';
 import 'package:dio/dio.dart';
 import 'package:meta/meta.dart';
 import 'package:rxdart/subjects.dart';
@@ -142,7 +142,7 @@ class AuthInterceptor<T> extends QueuedInterceptor
       // Continue the request
       handler.next(options);
     } on Object catch (e) {
-      logger.warning('Clearing token pair due to error: $e');
+      talker.warning('Clearing token pair due to error: $e');
 
       // We don't create a new exception here, just rethrow the original
       rethrow;
@@ -229,7 +229,7 @@ class AuthInterceptor<T> extends QueuedInterceptor
       newTokenPair = await refreshClient.refreshToken(token);
     } on RevokeTokenException {
       // Clear the token pair
-      logger.info('Revoking token pair');
+      talker.info('Revoking token pair');
       await clearTokenPair();
       rethrow;
     } on Object catch (_) {

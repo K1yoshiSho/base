@@ -5,9 +5,11 @@ import 'package:talker_flutter/talker_flutter.dart';
 
 /// [Talker] - This class contains methods for handling errors and logging.
 
+final Talker talker = TalkerFlutter.init();
+
 /// `initHandling` - This function initializes handling of the app.
 
-Future<void> initHandling({required Talker talker}) async {
+Future<void> initHandling() async {
   FlutterError.presentError = (details) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       talker.handle(details.exception, details.stack);
