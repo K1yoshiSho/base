@@ -21,8 +21,8 @@ final class AppRunner with InitializationFactoryImpl {
     // Preserve splash screen
     binding.deferFirstFrame();
 
-    // Override logging
-    await initHandling();
+    // // Override logging
+    // await initHandling();
 
     // Setup bloc observer and transformer
     Bloc.transformer = bloc_concurrency.sequential();

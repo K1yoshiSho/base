@@ -1,3 +1,5 @@
+import 'package:base_starter/src/feature/initialization/model/environment_store.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:talker_bloc_logger/talker_bloc_logger.dart';
@@ -23,21 +25,22 @@ Future<void> initHandling() async {
     ),
   );
 
-  // PlatformDispatcher.instance.onError = (error, stack) {
-  //   if (FlavorConfig.instance.name == FlavorKey.kProduction &&
-  //       kDebugMode == false) {
-  //     FirebaseCrashlytics.instance.recordError(error, stack);
-  //   }
-  //   dependenciesContainer.talker.handle(error, stack);
-  //   return true;
-  // };
+  PlatformDispatcher.instance.onError = (error, stack) {
+    if (const EnvironmentStore().environment.value == "Production" &&
+        kDebugMode == false) {
+      // FirebaseCrashlytics.instance.recordError(error, stack);
+    }
+    talker.handle(error, stack);
+    return true;
+  };
 
-  // FlutterError.onError = (details) => {
-  //       if (FlavorConfig.instance.name == FlavorKey.kProduction &&
-  //           kDebugMode == false) ...[
-  //         FirebaseCrashlytics.instance
-  //             .recordError(details.exception, details.stack),
-  //       ],
-  //      dependenciesContainer.talker.handle(details.exception, details.stack),
-  //     };
+  FlutterError.onError = (details) => {
+        if (const EnvironmentStore().environment.value == "Production" &&
+            // ignore: inference_failure_on_collection_literal
+            kDebugMode == false) ...[
+          // FirebaseCrashlytics.instance
+          //     .recordError(details.exception, details.stack),
+        ],
+        talker.handle(details.exception, details.stack),
+      };
 }

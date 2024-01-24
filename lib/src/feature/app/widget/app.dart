@@ -4,7 +4,6 @@ import 'package:base_starter/src/feature/initialization/model/dependencies.dart'
 import 'package:base_starter/src/feature/initialization/widget/dependencies_scope.dart';
 import 'package:base_starter/src/feature/settings/widget/settings_scope.dart';
 import 'package:flutter/material.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
 
 /// {@template app}
 /// [App] is an entry point to the application.
@@ -21,14 +20,11 @@ class App extends StatelessWidget {
   final InitializationResult result;
 
   @override
-  Widget build(BuildContext context) => DefaultAssetBundle(
-        bundle: SentryAssetBundle(),
-        child: DependenciesScope(
-          dependencies: result.dependencies,
-          child: SettingsScope(
-            settingsBloc: result.dependencies.settingsBloc,
-            child: const MaterialContext(),
-          ),
+  Widget build(BuildContext context) => DependenciesScope(
+        dependencies: result.dependencies,
+        child: SettingsScope(
+          settingsBloc: result.dependencies.settingsBloc,
+          child: const MaterialContext(),
         ),
       );
 }
