@@ -1,14 +1,12 @@
 import 'dart:async';
-
-import 'package:base_starter/src/core/utils/logger.dart';
+import 'package:base_starter/src/core/utils/talker_logger.dart';
 import 'package:base_starter/src/feature/app/logic/app_runner.dart';
 
 void main() {
-  logger.runLogging(
-    () => runZonedGuarded(
-      () => const AppRunner().initializeAndRun(),
-      logger.logZoneError,
-    ),
-    const LogOptions(),
+  runZonedGuarded(
+    () => const AppRunner().initializeAndRun(),
+    (error, stackTrace) {
+      talker.handle(error, stackTrace);
+    },
   );
 }

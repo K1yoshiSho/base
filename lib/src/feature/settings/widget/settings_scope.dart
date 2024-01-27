@@ -12,6 +12,9 @@ abstract interface class ThemeScopeController {
   /// Get the current [AppTheme].
   AppTheme get theme;
 
+  /// Get is the current theme mode is [ThemeMode.dark].
+  bool get isDarkMode;
+
   /// Set the theme mode to [themeMode].
   void setThemeMode(ThemeMode themeMode);
 
@@ -131,6 +134,9 @@ class _SettingsScopeState extends State<SettingsScope>
           child: widget.child,
         ),
       );
+
+  @override
+  bool get isDarkMode => theme.mode == ThemeMode.dark;
 }
 
 class _InheritedSettingsScope extends InheritedModel<_SettingsScopeAspect> {
