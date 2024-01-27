@@ -1,5 +1,5 @@
 import 'package:base_starter/src/core/localization/localization.dart';
-import 'package:base_starter/src/feature/home/widget/home_screen.dart';
+import 'package:base_starter/src/feature/home/presentation/pages/home.dart';
 import 'package:base_starter/src/feature/settings/widget/settings_scope.dart';
 import 'package:flutter/material.dart';
 

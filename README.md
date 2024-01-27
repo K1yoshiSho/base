@@ -4,6 +4,8 @@ This is an immensely adaptable Flutter starter, crafted with an ideally predeter
 
 To take advantage of this repository, simply click on the "Use this template" button. The subsequent instructions will guide you through the process of integrating and deploying this starter within your distinct projects.
 
+Based on the Sizzle Starter.
+
 ## Features
 
 - 🔥 Rapid installation process
