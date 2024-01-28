@@ -12,10 +12,16 @@ final class AppTheme with Diagnosticable {
       : darkTheme = ThemeData(
           colorSchemeSeed: seed,
           brightness: Brightness.dark,
+          appBarTheme: const AppBarTheme(
+            scrolledUnderElevation: 0,
+          ),
           useMaterial3: true,
         ),
         lightTheme = ThemeData(
           colorSchemeSeed: seed,
+          appBarTheme: const AppBarTheme(
+            scrolledUnderElevation: 0,
+          ),
           brightness: Brightness.light,
           useMaterial3: true,
         );

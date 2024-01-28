@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 /// {@template initialization_failed_screen}
 /// InitializationFailedScreen widget
@@ -65,7 +66,7 @@ class _InitializationFailedAppState extends State<InitializationFailedApp> {
                       ),
                   ],
                 ),
-                const SizedBox(height: 16),
+                const Gap(16),
                 Text(
                   '${widget.error}',
                   style: Theme.of(context)
@@ -73,7 +74,7 @@ class _InitializationFailedAppState extends State<InitializationFailedApp> {
                       .bodyLarge
                       ?.copyWith(color: Theme.of(context).colorScheme.error),
                 ),
-                const SizedBox(height: 16),
+                const Gap(16),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(

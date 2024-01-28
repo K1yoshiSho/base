@@ -2,7 +2,7 @@ import 'package:base_starter/src/feature/app/widget/material_context.dart';
 import 'package:base_starter/src/feature/initialization/logic/initialization_processor.dart';
 import 'package:base_starter/src/feature/initialization/model/dependencies.dart';
 import 'package:base_starter/src/feature/initialization/widget/dependencies_scope.dart';
-import 'package:base_starter/src/feature/settings/widget/settings_scope.dart';
+import 'package:base_starter/src/feature/settings/presentation/settings_scope.dart';
 import 'package:flutter/material.dart';
 
 /// {@template app}

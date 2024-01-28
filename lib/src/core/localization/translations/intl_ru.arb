@@ -4,5 +4,74 @@
    "custom_colors": "Кастомные цветы",
    "default_themes": "Стандартные темы",
    "locales": "Языки",
-   "change_theme": "Изменить тему"
+   "change_theme": "Изменить тему",
+   "talker_type_debug": "Отладка",
+   "talker_type_debug_count": "Количество отладочных логов: {text}",
+   "@talker_type_debug_count": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "talker_type_good": "Хорошие",
+   "talker_type_good_count": "Количество хороших логов: {text}",
+   "@talker_type_good_count": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "talker_type_info": "Информативные",
+   "talker_type_info_count": "Количество информативных логов: {text}",
+   "@talker_type_info_count": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "talker_type_warnings": "Предупреждения",
+   "talker_type_warnings_count": "Количество предупреждающих логов: {text}",
+   "@talker_type_warnings_count": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "talker_type_exceptions": "Исключения",
+   "talker_type_exceptions_count": "Количество логов об исключениях: {text}",
+   "@talker_type_exceptions_count": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "talker_type_errors": "Ошибки",
+   "talker_type_errors_count": "Количество логов об ошибках: {text}",
+   "@talker_type_errors_count": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "talker_type_http": "HTTP запросы",
+   "talker_type_http_count": "Количество логов связанных с запросами: {text}",
+   "@talker_type_http_count": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "error": "Ошибка",
+   "statusCode": "Код ответа",
+   "url": "Ссылка",
+   "method": "Метод отправки",
+   "noValues": "Нет значений",
+   "showMore": "Подробнее",
+   "idleRefresh": "Потяните вниз, чтобы обновить",
+   "letForUpdate": "Отпустите для загрузки",
+   "loading": "Загрузка",
+   "updated": "Обновлено",
+   "noDataToDownload": "Нет данных для загрузки",
+   "lastUpdate": "Последний раз обновлялось: {text}",
+   "@lastUpdate": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "fieldIsRequired": "Это поле обязательно",
+   "requestSuccess": "Запрос был выполнен успешно",
+   "nothingFound": "Ничего не найдено по этому запросу"
 }

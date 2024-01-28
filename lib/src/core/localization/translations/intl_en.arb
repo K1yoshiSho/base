@@ -4,5 +4,74 @@
    "custom_colors": "Custom Colors",
    "default_themes": "Default Themes",
    "locales": "Locales",
-   "change_theme": "Change theme"
+   "change_theme": "Change theme",
+   "talker_type_debug": "Verbose & debug",
+   "talker_type_debug_count": "Verbose and debug logs count: {text}",
+   "@talker_type_debug_count": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "talker_type_good": "Good",
+   "talker_type_good_count": "Good logs count: {text}",
+   "@talker_type_good_count": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "talker_type_info": "Info",
+   "talker_type_info_count": "Info logs count: {text}",
+   "@talker_type_info_count": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "talker_type_warnings": "Warnings",
+   "talker_type_warnings_count": "Warning logs count: {text}",
+   "@talker_type_warnings_count": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "talker_type_exceptions": "Exceptions",
+   "talker_type_exceptions_count": "Exception logs count: {text}",
+   "@talker_type_exceptions_count": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "talker_type_errors": "Errors",
+   "talker_type_errors_count": "Error logs count: {text}",
+   "@talker_type_errors_count": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "talker_type_http": "HTTP requests",
+   "talker_type_http_count": "HTTP request logs count: {text}",
+   "@talker_type_http_count": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "error": "Error",
+   "statusCode": "Status code",
+   "url": "Url",
+   "method": "Method",
+   "noValues": "No values",
+   "showMore": "Show more",
+   "idleRefresh": "Pull down to refresh",
+   "letForUpdate": "Release to download",
+   "loading": "Loading",
+   "updated": "Updated",
+   "noDataToDownload": "There is no data to download",
+   "lastUpdate": "Last updated: {text}",
+   "@lastUpdate": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "fieldIsRequired": "Field is required",
+   "requestSuccess": "The request was executed successfully",
+   "nothingFound": "Nothing was found for this query"
 }

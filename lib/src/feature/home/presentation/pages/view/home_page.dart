@@ -28,8 +28,14 @@ class HomeScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute<Widget>(
-                          builder: (_) => TalkerScreen(
+                          builder: (_) => CustomTalkerScreen(
                             talker: talker,
+                            appBarLeading: IconButton(
+                              onPressed: () => Navigator.of(context).pop(),
+                              icon: const Icon(
+                                Icons.arrow_back,
+                              ),
+                            ),
                           ),
                         ),
                       );
@@ -74,7 +80,8 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 const _ThemeSelector(Colors.accents),
-                SwitchListTile(
+                SwitchListTile.adaptive(
+                  activeColor: context.theme.colorScheme.primaryContainer,
                   title: Text(
                     Localization.of(context).change_theme,
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(

@@ -74,7 +74,8 @@ final class InitializationProcessor {
     final dependencies = await _initDependencies();
     talker.info('Dependencies initialized');
     talker.good(
-        "\nEnvironment value: ${const EnvironmentStore().environment.value}\nEnvironment name: ${const EnvironmentStore().environment.name}\nEnvironment index: ${const EnvironmentStore().environment.index}");
+      "Environment value: ${const EnvironmentStore().environment.value}\nEnvironment name: ${const EnvironmentStore().environment.name}\nEnvironment index: ${const EnvironmentStore().environment.index}",
+    );
 
     stopwatch.stop();
     final result = InitializationResult(
