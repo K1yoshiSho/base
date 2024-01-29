@@ -47,9 +47,9 @@ dependencies:
   stack_trace: ^1.11.1
   sentry_flutter: ^7.14.0
   logging: ^1.2.0
-  talker_flutter: ^3.6.0
-  talker_dio_logger: ^2.4.0
-  talker_bloc_logger: ^2.4.0
+  talker_flutter: ^4.0.0
+  talker_dio_logger: ^4.0.0
+  talker_bloc_logger: ^4.0.0
 
   # Utils
   pure: ^0.2.0
