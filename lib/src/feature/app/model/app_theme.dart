@@ -1,3 +1,5 @@
+import 'package:base_starter/src/core/configs/style/themes/dark.dart';
+import 'package:base_starter/src/core/configs/style/themes/light.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -9,16 +11,8 @@ import 'package:flutter/material.dart';
 final class AppTheme with Diagnosticable {
   /// {@macro app_theme}
   AppTheme({required this.mode, required this.seed})
-      : darkTheme = ThemeData(
-          colorSchemeSeed: seed,
-          brightness: Brightness.dark,
-          useMaterial3: true,
-        ),
-        lightTheme = ThemeData(
-          colorSchemeSeed: seed,
-          brightness: Brightness.light,
-          useMaterial3: true,
-        );
+      : darkTheme = getBaseDarkTheme(seed: seed),
+        lightTheme = getBaseLightTheme(seed: seed);
 
   /// The type of theme to use.
   final ThemeMode mode;
@@ -40,18 +34,14 @@ final class AppTheme with Diagnosticable {
 
   /// The [ThemeData] for this [AppTheme].
   /// This is computed based on the [mode].
-  ThemeData computeTheme() {
-    switch (mode) {
-      case ThemeMode.light:
-        return lightTheme;
-      case ThemeMode.dark:
-        return darkTheme;
-      case ThemeMode.system:
-        return PlatformDispatcher.instance.platformBrightness == Brightness.dark
-            ? darkTheme
-            : lightTheme;
-    }
-  }
+  ThemeData computeTheme() => switch (mode) {
+        ThemeMode.light => lightTheme,
+        ThemeMode.dark => darkTheme,
+        ThemeMode.system =>
+          PlatformDispatcher.instance.platformBrightness == Brightness.dark
+              ? darkTheme
+              : lightTheme,
+      };
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {

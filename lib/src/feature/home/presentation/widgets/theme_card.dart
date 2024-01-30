@@ -15,7 +15,7 @@ class _ThemeCard extends StatelessWidget {
               SettingsScope.themeOf(context).setThemeSeedColor(_color);
             },
             borderRadius: BorderRadius.circular(4),
-            child: const SizedBox.square(dimension: 64),
+            child: const Gap(70),
           ),
         ),
       );

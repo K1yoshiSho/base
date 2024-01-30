@@ -1,7 +1,8 @@
 import 'package:base_starter/src/core/localization/localization.dart';
 import 'package:base_starter/src/feature/home/presentation/pages/home.dart';
-import 'package:base_starter/src/feature/settings/widget/settings_scope.dart';
+import 'package:base_starter/src/feature/settings/presentation/settings_scope.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 /// {@template material_context}
 /// [MaterialContext] is an entry point to the material context.
@@ -30,11 +31,15 @@ class MaterialContext extends StatelessWidget {
       supportedLocales: Localization.supportedLocales,
       locale: locale,
       home: const HomeScreen(),
-      builder: (context, child) => MediaQuery.withClampedTextScaling(
-        minScaleFactor: 1.0,
-        maxScaleFactor: 2.0,
-        child: child!,
-      ),
+      builder: (context, child) {
+        child = EasyLoading.init()(context, child);
+        child = MediaQuery.withClampedTextScaling(
+          minScaleFactor: 1.0,
+          maxScaleFactor: 2.0,
+          child: child,
+        );
+        return child;
+      },
     );
   }
 }

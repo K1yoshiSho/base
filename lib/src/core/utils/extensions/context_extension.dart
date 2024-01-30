@@ -1,4 +1,7 @@
+import 'package:base_starter/src/core/localization/localization.dart';
+import 'package:base_starter/src/core/utils/extensions/colors_extension.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 /// List of extensions for [BuildContext]
 extension ContextExtension on BuildContext {
@@ -40,4 +43,18 @@ extension ContextExtension on BuildContext {
             'a $T of the exact type',
         'out_of_scope',
       ));
+
+  Size get size => MediaQuery.sizeOf(this);
+
+  EdgeInsets get viewInsets => MediaQuery.viewInsetsOf(this);
+
+  double get height => MediaQuery.sizeOf(this).height;
+
+  double get width => MediaQuery.sizeOf(this).width;
+
+  ThemeData get theme => Theme.of(this);
+
+  AppColorsExtension get colors => theme.extension<AppColorsExtension>()!;
+
+  AppLocalizations get l10n => Localization.of(this);
 }

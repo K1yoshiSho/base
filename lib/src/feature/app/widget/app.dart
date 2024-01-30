@@ -1,8 +1,7 @@
 import 'package:base_starter/src/feature/app/widget/material_context.dart';
-import 'package:base_starter/src/feature/initialization/logic/initialization_processor.dart';
 import 'package:base_starter/src/feature/initialization/model/dependencies.dart';
 import 'package:base_starter/src/feature/initialization/widget/dependencies_scope.dart';
-import 'package:base_starter/src/feature/settings/widget/settings_scope.dart';
+import 'package:base_starter/src/feature/settings/presentation/settings_scope.dart';
 import 'package:flutter/material.dart';
 
 /// {@template app}
@@ -15,7 +14,14 @@ class App extends StatelessWidget {
   /// {@macro app}
   const App({required this.result, super.key});
 
-  /// The initialization result from the [InitializationProcessor]
+  /// Running this function will result in attaching
+  /// corresponding [RenderObject] to the root of the tree.
+  void attach([VoidCallback? callback]) {
+    callback?.call();
+    runApp(this);
+  }
+
+  /// The initialization result from the `InitializationProcessor`
   /// which contains initialized dependencies.
   final InitializationResult result;
 

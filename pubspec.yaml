@@ -45,11 +45,10 @@ dependencies:
 
   # Logging
   stack_trace: ^1.11.1
-  sentry_flutter: ^7.14.0
   logging: ^1.2.0
-  talker_flutter: ^3.6.0
-  talker_dio_logger: ^2.4.0
-  talker_bloc_logger: ^2.4.0
+  talker_flutter: ^4.0.0
+  talker_dio_logger: ^4.0.0
+  talker_bloc_logger: ^4.0.0
 
   # Utils
   pure: ^0.2.0
@@ -58,6 +57,11 @@ dependencies:
   path_provider: ^2.1.2
   mocktail: ^1.0.3
   equatable: ^2.0.5
+
+  # UI
+  gap: ^3.0.1
+  group_button: ^5.3.4
+  flutter_easyloading: ^3.0.5
 
   # Others
   provider: ^6.1.1
