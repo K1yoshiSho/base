@@ -9,7 +9,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.background,
+        backgroundColor: context.theme.colorScheme.background,
         body: CustomScrollView(
           slivers: [
             SliverAppBar(
@@ -17,19 +17,24 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    Localization.of(context).appTitle.capitalize(),
-                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: Theme.of(context).colorScheme.onBackground,
-                        ),
+                    context.l10n.appTitle.capitalize(),
+                    style: context.theme.textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: context.theme.colorScheme.onBackground,
+                    ),
                   ),
                   IconButton.filledTonal(
                     icon: const Icon(Icons.monitor_heart),
                     onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute<Widget>(
-                          builder: (_) => CustomTalkerScreen(
+                          builder: (_) => TalkerScreen(
                             talker: talker,
+                            theme: TalkerScreenTheme(
+                              backgroundColor:
+                                  context.theme.colorScheme.background,
+                              textColor: context.colors.text,
+                            ),
                             appBarLeading: IconButton(
                               onPressed: () => Navigator.of(context).pop(),
                               icon: const Icon(
@@ -50,44 +55,44 @@ class HomeScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    Localization.of(context).locales,
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: Theme.of(context).colorScheme.onBackground,
-                        ),
+                    context.l10n.locales,
+                    style: context.theme.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: context.theme.colorScheme.onBackground,
+                    ),
                   ),
                 ),
                 _LanguagesSelector(Localization.supportedLocales),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    Localization.of(context).default_themes,
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: Theme.of(context).colorScheme.onBackground,
-                        ),
+                    context.l10n.default_themes,
+                    style: context.theme.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: context.theme.colorScheme.onBackground,
+                    ),
                   ),
                 ),
                 const _ThemeSelector(Colors.primaries),
                 Padding(
                   padding: const EdgeInsets.only(left: 8, top: 8),
                   child: Text(
-                    Localization.of(context).custom_colors,
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: Theme.of(context).colorScheme.onBackground,
-                        ),
+                    context.l10n.custom_colors,
+                    style: context.theme.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: context.theme.colorScheme.onBackground,
+                    ),
                   ),
                 ),
                 const _ThemeSelector(Colors.accents),
                 SwitchListTile.adaptive(
                   activeColor: context.theme.colorScheme.primaryContainer,
                   title: Text(
-                    Localization.of(context).change_theme,
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: Theme.of(context).colorScheme.onBackground,
-                        ),
+                    context.l10n.change_theme,
+                    style: context.theme.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: context.theme.colorScheme.onBackground,
+                    ),
                   ),
                   value: SettingsScope.themeOf(context).isDarkMode,
                   onChanged: (value) {
@@ -105,7 +110,7 @@ class HomeScreen extends StatelessWidget {
                     height: 100,
                     width: 100,
                     child: Card(
-                      color: Theme.of(context).colorScheme.primaryContainer,
+                      color: context.theme.colorScheme.primaryContainer,
                       margin: const EdgeInsets.all(8),
                     ),
                   ),

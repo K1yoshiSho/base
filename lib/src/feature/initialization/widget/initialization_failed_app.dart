@@ -1,3 +1,4 @@
+import 'package:base_starter/src/core/utils/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -57,7 +58,7 @@ class _InitializationFailedAppState extends State<InitializationFailedApp> {
                   children: [
                     Text(
                       'Initialization failed',
-                      style: Theme.of(context).textTheme.headlineMedium,
+                      style: context.theme.textTheme.headlineMedium,
                     ),
                     if (widget.retryInitialization != null)
                       IconButton(
@@ -69,17 +70,15 @@ class _InitializationFailedAppState extends State<InitializationFailedApp> {
                 const Gap(16),
                 Text(
                   '${widget.error}',
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyLarge
-                      ?.copyWith(color: Theme.of(context).colorScheme.error),
+                  style: context.theme.textTheme.bodyLarge
+                      ?.copyWith(color: context.theme.colorScheme.error),
                 ),
                 const Gap(16),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     '${widget.stackTrace}',
-                    style: Theme.of(context).textTheme.bodyLarge,
+                    style: context.theme.textTheme.bodyLarge,
                   ),
                 ),
               ],

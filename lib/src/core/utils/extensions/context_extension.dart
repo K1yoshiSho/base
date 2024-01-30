@@ -1,4 +1,5 @@
 import 'package:base_starter/src/core/localization/localization.dart';
+import 'package:base_starter/src/core/utils/extensions/colors_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -52,6 +53,16 @@ extension ContextExtension on BuildContext {
   double get width => MediaQuery.sizeOf(this).width;
 
   ThemeData get theme => Theme.of(this);
+
+  // / Here you should define getters for your `ThemeExtension`s.
+// /
+// / Never use `context.theme.extension<MyColors>()!`
+// / how they do it in the [official documentation](https://api.flutter.dev/flutter/material/ThemeExtension-class.html),
+// / because it's not safe. Always create a getter for your `ThemeExtension` and use it instead.
+// /
+// / Usage example: `context.theme.appColors`.
+
+  AppColorsExtension get colors => theme.extension<AppColorsExtension>()!;
 
   AppLocalizations get l10n => Localization.of(this);
 }

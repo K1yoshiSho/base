@@ -9,7 +9,7 @@ class _LanguageCard extends StatelessWidget {
   Widget build(BuildContext context) => Card(
         child: DecoratedBox(
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary,
+            color: context.theme.colorScheme.primary,
             borderRadius: BorderRadius.circular(4),
           ),
           child: InkWell(
@@ -20,9 +20,9 @@ class _LanguageCard extends StatelessWidget {
               child: Center(
                 child: Text(
                   _language.languageCode,
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: Theme.of(context).colorScheme.onPrimary,
-                      ),
+                  style: context.theme.textTheme.bodyMedium?.copyWith(
+                    color: context.theme.colorScheme.onPrimary,
+                  ),
                 ),
               ),
             ),
