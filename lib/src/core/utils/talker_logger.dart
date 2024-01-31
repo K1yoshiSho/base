@@ -7,7 +7,11 @@ import 'package:talker_flutter/talker_flutter.dart';
 
 /// [Talker] - This class contains methods for handling errors and logging.
 
-final Talker talker = TalkerFlutter.init();
+final Talker talker = TalkerFlutter.init(
+  settings: TalkerSettings(
+    
+  ),
+);
 
 /// `initHandling` - This function initializes handling of the app.
 

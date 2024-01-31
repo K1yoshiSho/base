@@ -27,7 +27,7 @@ abstract interface class InitializationHook {
     void Function()? onInit,
     void Function(InitializationStepInfo info)? onInitializing,
     void Function(InitializationResult)? onInitialized,
-    void Function(int, Object error)? onError,
+    void Function(int, Object error, StackTrace stackTrace)? onError,
   }) = _Hook;
 
   /// Called before the initialization process starts.
@@ -40,7 +40,7 @@ abstract interface class InitializationHook {
   void Function(InitializationResult)? onInitialized;
 
   /// Called when the initialization process is failed.
-  void Function(int, Object error)? onError;
+  void Function(int, Object error, StackTrace stackTrace)? onError;
 }
 
 final class _Hook extends InitializationHook {
