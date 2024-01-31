@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute<Widget>(
-                          builder: (_) => TalkerScreen(
+                          builder: (_) => TalkerPage(
                             talker: talker,
                             theme: TalkerScreenTheme(
                               backgroundColor:

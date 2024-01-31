@@ -49,6 +49,7 @@ mixin InitializationSteps {
         themeRepository: themeRepository,
         initialState: initialState,
       );
+
       progress.dependencies.settingsBloc = settingsBloc;
     },
   };

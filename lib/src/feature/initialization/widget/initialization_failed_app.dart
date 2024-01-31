@@ -49,36 +49,73 @@ class _InitializationFailedAppState extends State<InitializationFailedApp> {
   @override
   Widget build(BuildContext context) => MaterialApp(
         home: Scaffold(
-          body: Center(
+          appBar: AppBar(
+            title: Text(
+              'Initialization failed',
+              style: context.theme.textTheme.titleLarge?.copyWith(
+                color: context.theme.colorScheme.error,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          body: SingleChildScrollView(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Text(
+                  'Error type: ${widget.error}',
+                  style: context.theme.textTheme.bodyLarge?.copyWith(
+                    color: context.theme.colorScheme.error,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                const Gap(16),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      'Initialization failed',
-                      style: context.theme.textTheme.headlineMedium,
-                    ),
                     if (widget.retryInitialization != null)
-                      IconButton(
-                        icon: const Icon(Icons.refresh),
+                      ElevatedButton(
                         onPressed: _retryInitialization,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: context.theme.colorScheme.error,
+                        ),
+                        child: const Row(
+                          children: [
+                            Text(
+                              'Retry',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            Gap(8),
+                            Icon(
+                              Icons.refresh_rounded,
+                              color: Colors.white,
+                            ),
+                          ],
+                        ),
                       ),
                   ],
                 ),
                 const Gap(16),
-                Text(
-                  '${widget.error}',
-                  style: context.theme.textTheme.bodyLarge
-                      ?.copyWith(color: context.theme.colorScheme.error),
-                ),
-                const Gap(16),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    '${widget.stackTrace}',
-                    style: context.theme.textTheme.bodyLarge,
+                  padding: const EdgeInsets.only(left: 16, right: 16),
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: context.theme.colorScheme.error,
+                      ),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        '${widget.stackTrace}',
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 50,
+                        style: context.theme.textTheme.bodyMedium?.copyWith(
+                          color: context.theme.colorScheme.error,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ],

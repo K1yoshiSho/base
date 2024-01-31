@@ -32,37 +32,23 @@ final class AppRunner
 
     // Setup bloc observer and transformer
     Bloc.transformer = bloc_concurrency.sequential();
+    Future<void> initializeAndRun(InitializationHook hook) async {
+      try {
+        final result = await processInitialization(
+          steps: initializationSteps,
+          hook: hook,
+          factory: this,
+        );
 
-    final result = await processInitialization(
-      steps: initializationSteps,
-      hook: hook,
-      factory: this,
-    );
+        FlutterNativeSplash.remove();
+        runApp(App(result: result));
+      } catch (e) {
+        rethrow;
+      } finally {
+        binding.allowFirstFrame();
+      }
+    }
 
-    binding.allowFirstFrame();
-
-    // Future<void> initializeAndRun() async {
-    //   try {
-    //     final result = await initializationProcessor.initialize();
-    //     // Attach this widget to the root of the tree.
-    //     runApp(App(result: result));
-    //   } catch (e, stackTrace) {
-    //     talker.error('Initialization failed');
-    //     talker.handle(e, stackTrace);
-    //     runApp(
-    //       InitializationFailedApp(
-    //         error: e,
-    //         stackTrace: stackTrace,
-    //         retryInitialization: initializeAndRun,
-    //       ),
-    //     );
-    //   } finally {
-    //     // Allow rendering
-    //     binding.allowFirstFrame();
-    //   }
-    // }
-
-    // Attach this widget to the root of the tree.
-    App(result: result).attach(FlutterNativeSplash.remove);
+    await initializeAndRun(hook);
   }
 }

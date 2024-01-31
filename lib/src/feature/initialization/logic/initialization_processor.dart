@@ -1,3 +1,4 @@
+import 'package:base_starter/src/core/utils/talker_logger.dart';
 import 'package:base_starter/src/feature/initialization/logic/initialization_steps.dart';
 import 'package:base_starter/src/feature/initialization/model/dependencies.dart';
 import 'package:base_starter/src/feature/initialization/model/environment_store.dart';
@@ -24,8 +25,12 @@ mixin InitializationProcessor {
       dependencies: Dependencies(),
       environmentStore: env,
     );
+
     if (!kDebugMode) {}
     hook.onInit?.call();
+    talker.info(
+      "🔉 Initialization started in ${env.environment.value} (${env.environment.name}) mode",
+    );
     try {
       await for (final step in Stream.fromIterable(steps.entries)) {
         stepCount++;
@@ -40,8 +45,8 @@ mixin InitializationProcessor {
           ),
         );
       }
-    } on Object catch (e) {
-      hook.onError?.call(stepCount, e);
+    } catch (e, st) {
+      hook.onError?.call(stepCount, e, st);
       rethrow;
     }
     stopwatch.stop();
