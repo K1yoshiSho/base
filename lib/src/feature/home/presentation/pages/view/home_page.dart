@@ -34,6 +34,7 @@ class HomeScreen extends StatelessWidget {
                               backgroundColor:
                                   context.theme.colorScheme.background,
                               textColor: context.colors.text,
+                              cardColor: context.colors.card,
                             ),
                             appBarLeading: IconButton(
                               onPressed: () => Navigator.of(context).pop(),

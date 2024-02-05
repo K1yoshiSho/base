@@ -48,8 +48,45 @@
       }
    },
    "talker_type_http": "HTTP запросы",
-   "talker_type_http_count": "Количество логов связанных с запросами: {text}",
-   "@talker_type_http_count": {
+   "talker_http_requests_count": "Количество HTTP запросов: {text}",
+   "@talker_http_requests_count": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "talker_http_responses_count": "Количество HTTP ответов: {text}",
+   "@talker_http_responses_count": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "talker_http_failues_count": "Количество HTTP ошибок: {text}",
+   "@talker_http_failues_count": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "talker_type_bloc": "BLoC",
+   "talker_bloc_transition_count": "Количество BLoC transition: {text}",
+   "@talker_bloc_transition_count": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "talker_bloc_events_count": "Количество BLoC ивентов: {text}",
+   "@talker_bloc_events_count": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "talker_bloc_close_count": "Количество BLoC закрытий: {text}",
+   "@talker_bloc_close_count": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "talker_bloc_create_count": "Количество BLoC созданий: {text}",
+   "@talker_bloc_create_count": {
       "placeholders": {
          "text": {}
       }
@@ -73,5 +110,19 @@
    },
    "fieldIsRequired": "Это поле обязательно",
    "requestSuccess": "Запрос был выполнен успешно",
-   "nothingFound": "Ничего не найдено по этому запросу"
+   "nothingFound": "Ничего не найдено по этому запросу",
+   "actions": "Действия",
+   "reverse_logs": "Изменить порядок",
+   "copy_all_logs": "Скопировать все логи",
+   "collapse_logs": "Свернуть логи",
+   "expand_logs": "Развернуть логи",
+   "clean_history": "Очистить историю",
+   "share_logs_file": "Поделиться файлом логов",
+   "log_item_copied": "Элемент журнала скопирован в буфер обмена",
+   "basic_settings": "Базовые настройки",
+   "enabled": "Включено",
+   "use_console_logs": "Использовать логи в консоли",
+   "use_history": "Использовать историю",
+   "settings": "Настройки",
+   "search": "Поиск"
 }

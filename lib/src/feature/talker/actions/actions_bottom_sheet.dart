@@ -15,13 +15,13 @@ class TalkerActionsBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BaseBottomSheet(
-        title: 'Talker Actions',
+        title: context.l10n.actions,
         talkerScreenTheme: talkerScreenTheme,
         child: Container(
-          margin:
-              const EdgeInsets.symmetric(horizontal: 16).copyWith(bottom: 16),
+          margin: const EdgeInsets.symmetric(horizontal: 16)
+              .copyWith(bottom: 16, top: 8),
           decoration: BoxDecoration(
-            color: context.colors.card,
+            color: talkerScreenTheme.cardColor,
             borderRadius: BorderRadius.circular(16),
           ),
           child: Column(
@@ -59,21 +59,24 @@ class _ActionTile extends StatelessWidget {
   Widget build(BuildContext context) => Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          ListTile(
-            onTap: () => _onTap(context),
-            title: Text(
-              action.title,
-              style: TextStyle(
-                color: talkerScreenTheme.textColor,
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
+          Material(
+            color: Colors.transparent,
+            child: ListTile(
+              onTap: () => _onTap(context),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
               ),
+              dense: true,
+              title: Text(
+                action.title,
+                style: context.theme.textTheme.bodyLarge,
+              ),
+              leading: Icon(action.icon, color: talkerScreenTheme.textColor),
             ),
-            leading: Icon(action.icon, color: talkerScreenTheme.textColor),
           ),
           if (showDivider)
             Divider(
-              color: talkerScreenTheme.textColor.withOpacity(0.2),
+              color: context.colors.divider,
               height: 1,
             ),
         ],

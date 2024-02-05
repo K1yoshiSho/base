@@ -48,8 +48,45 @@
       }
    },
    "talker_type_http": "HTTP requests",
-   "talker_type_http_count": "HTTP request logs count: {text}",
-   "@talker_type_http_count": {
+   "talker_http_requests_count": "HTTP request logs count: {text}",
+   "@talker_http_requests_count": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "talker_http_responses_count": "HTTP response logs count: {text}",
+   "@talker_http_responses_count": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "talker_http_failues_count": "HTTP failure logs count: {text}",
+   "@talker_http_failues_count": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "talker_type_bloc": "BLoC",
+   "talker_bloc_transition_count": "BLoC transitions count: {text}",
+   "@talker_bloc_transition_count": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "talker_bloc_events_count": "BLoC events count: {text}",
+   "@talker_bloc_events_count": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "talker_bloc_close_count": "BLoC closes count: {text}",
+   "@talker_bloc_close_count": {
+      "placeholders": {
+         "text": {}
+      }
+   },
+   "talker_bloc_create_count": "BLoC creates count: {text}",
+   "@talker_bloc_create_count": {
       "placeholders": {
          "text": {}
       }
@@ -73,5 +110,19 @@
    },
    "fieldIsRequired": "Field is required",
    "requestSuccess": "The request was executed successfully",
-   "nothingFound": "Nothing was found for this query"
+   "nothingFound": "Nothing was found for this query",
+   "actions": "Actions",
+   "reverse_logs": "Reverse logs",
+   "copy_all_logs": "Copy all logs",
+   "collapse_logs": "Collapse logs",
+   "expand_logs": "Expand logs",
+   "clean_history": "Clean history",
+   "share_logs_file": "Share logs file",
+   "log_item_copied": "Log item is copied in clipboard",
+   "basic_settings": "Basic settings",
+   "enabled": "Enabled",
+   "use_console_logs": "Use console logs",
+   "use_history": "Use history",
+   "settings": "History",
+   "search": "Search"
 }

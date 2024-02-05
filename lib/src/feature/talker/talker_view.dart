@@ -1,15 +1,17 @@
 // ignore_for_file: implementation_imports
 
+import 'package:base_starter/src/core/configs/dialogs/app_dialogs.dart';
+import 'package:base_starter/src/core/utils/extensions/context_extension.dart';
 import 'package:base_starter/src/feature/talker/actions/actions_bottom_sheet.dart';
-import 'package:base_starter/src/feature/talker/talker_key.dart';
-
+import 'package:base_starter/src/feature/talker/monitor/talker_monitor_page.dart';
+import 'package:base_starter/src/feature/talker/utils/get_data_color.dart';
+import 'package:base_starter/src/feature/talker/widgets/data_card.dart';
+import 'package:base_starter/src/feature/talker/widgets/settings_bottom_sheet.dart';
+import 'package:base_starter/src/feature/talker/widgets/view_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:group_button/group_button.dart';
 import 'package:talker_flutter/src/controller/controller.dart';
-import 'package:talker_flutter/src/ui/talker_monitor/talker_monitor.dart';
-import 'package:talker_flutter/src/ui/talker_settings/talker_settings.dart';
-import 'package:talker_flutter/src/ui/widgets/talker_view_appbar.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
 class TalkerView extends StatefulWidget {
@@ -50,6 +52,7 @@ class TalkerView extends StatefulWidget {
 
 class _TalkerViewState extends State<TalkerView> {
   final _titlesController = GroupButtonController();
+  final _focusNode = FocusNode();
   late final _controller = widget.controller ?? TalkerViewController();
 
   @override
@@ -71,7 +74,8 @@ class _TalkerViewState extends State<TalkerView> {
               controller: widget.scrollController,
               physics: const BouncingScrollPhysics(),
               slivers: [
-                TalkerViewAppBar(
+                TalkerAppBar(
+                  focusNode: _focusNode,
                   title: widget.appBarTitle,
                   leading: widget.appBarLeading,
                   talker: widget.talker,
@@ -94,17 +98,18 @@ class _TalkerViewState extends State<TalkerView> {
                       if (widget.itemsBuilder != null) {
                         return widget.itemsBuilder!.call(context, data);
                       }
-                      return TalkerDataCard(
+                      return TalkerDataCards(
                         data: data,
                         backgroundColor: widget.theme.cardColor,
                         onCopyTap: () => _copyTalkerDataItemText(data),
                         expanded: _controller.expandedLogs,
-                        color: data.getTypeColor(widget.theme),
+                        color: getTypeColor(data.title),
                       );
                     },
                     childCount: filtredElements.length,
                   ),
                 ),
+                const SliverToBoxAdapter(child: SizedBox(height: 8)),
               ],
             );
           },
@@ -136,7 +141,7 @@ class _TalkerViewState extends State<TalkerView> {
     showModalBottomSheet<void>(
       context: context,
       backgroundColor: Colors.transparent,
-      builder: (context) => TalkerSettingsBottomSheet(
+      builder: (context) => TalkerSettingsBottomSheets(
         talkerScreenTheme: theme,
         talker: talker,
       ),
@@ -146,7 +151,7 @@ class _TalkerViewState extends State<TalkerView> {
   void _openTalkerMonitor(BuildContext context) {
     Navigator.of(context).push(
       MaterialPageRoute<Widget>(
-        builder: (context) => TalkerMonitor(
+        builder: (context) => TalkerMonitorPage(
           theme: widget.theme,
           talker: widget.talker,
         ),
@@ -157,13 +162,11 @@ class _TalkerViewState extends State<TalkerView> {
   void _copyTalkerDataItemText(TalkerData data) {
     final text = data.generateTextMessage();
     Clipboard.setData(ClipboardData(text: text));
-    _showSnackBar(context, 'Log item is copied in clipboard');
+    _showSnackBar(context, context.l10n.log_item_copied);
   }
 
   void _showSnackBar(BuildContext context, String text) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(text)),
-    );
+    AppDialogs.showToast(context, title: text);
   }
 
   Future<void> _showActionsBottomSheet(BuildContext context) async {
@@ -175,29 +178,31 @@ class _TalkerViewState extends State<TalkerView> {
         actions: [
           TalkerActionItem(
             onTap: _controller.toggleLogOrder,
-            title: 'Reverse logs',
+            title: context.l10n.reverse_logs,
             icon: Icons.swap_vert,
           ),
           TalkerActionItem(
             onTap: () => _copyAllLogs(context),
-            title: 'Copy all logs',
+            title: context.l10n.copy_all_logs,
             icon: Icons.copy,
           ),
           TalkerActionItem(
             onTap: _toggleLogsExpanded,
-            title: _controller.expandedLogs ? 'Collapse logs' : 'Expand logs',
+            title: _controller.expandedLogs
+                ? context.l10n.collapse_logs
+                : context.l10n.expand_logs,
             icon: _controller.expandedLogs
                 ? Icons.visibility_outlined
                 : Icons.visibility_off_outlined,
           ),
           TalkerActionItem(
             onTap: _cleanHistory,
-            title: 'Clean history',
+            title: context.l10n.clean_history,
             icon: Icons.delete_outline,
           ),
           TalkerActionItem(
             onTap: _shareLogsInFile,
-            title: 'Share logs file',
+            title: context.l10n.share_logs_file,
             icon: Icons.ios_share_outlined,
           ),
         ],

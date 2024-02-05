@@ -20,11 +20,8 @@ class BaseBottomSheet extends StatelessWidget {
     return SafeArea(
       bottom: false,
       child: Container(
-        margin: EdgeInsets.only(
-          top: mq.padding.top + mq.viewInsets.top + 50,
-        ),
         padding: EdgeInsets.only(
-          top: 20,
+          top: 10,
           bottom: mq.padding.bottom,
         ),
         decoration: BoxDecoration(
@@ -36,7 +33,9 @@ class BaseBottomSheet extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8)
-                  .copyWith(bottom: 16),
+                  .copyWith(
+                bottom: 8,
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -45,9 +44,10 @@ class BaseBottomSheet extends StatelessWidget {
                     style: theme.textTheme.headlineSmall
                         ?.copyWith(color: talkerScreenTheme.textColor),
                   ),
-                  InkWell(
-                    onTap: () => Navigator.pop(context),
-                    child: Icon(
+                  IconButton(
+                    onPressed: () => Navigator.pop(context),
+                    visualDensity: VisualDensity.compact,
+                    icon: Icon(
                       Icons.close_rounded,
                       color: talkerScreenTheme.textColor,
                     ),

@@ -36,7 +36,7 @@ final class AppDialogs {
     );
   }
 
-  static void showToast(BuildContext context, {String? title}) {
+  static void showToast(BuildContext context, {required String title}) {
     EasyLoading.instance
       ..displayDuration = const Duration(milliseconds: 1500)
       ..indicatorType = EasyLoadingIndicatorType.dualRing
@@ -54,7 +54,7 @@ final class AppDialogs {
       ..dismissOnTap = false;
     EasyLoading.dismiss();
     EasyLoading.showToast(
-      title ?? context.l10n.requestSuccess,
+      title,
       duration: const Duration(seconds: 1),
       maskType: EasyLoadingMaskType.clear,
       toastPosition: EasyLoadingToastPosition.bottom,
