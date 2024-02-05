@@ -38,7 +38,8 @@ void _onInitializing(InitializationStepInfo info) {
 }
 
 void _onInitialized(InitializationResult result) {
-  talker.info('🎉 Initialization completed in ${result.msSpent} ms');
+  talker
+      .logTyped(GoodLog('🎉 Initialization completed in ${result.msSpent} ms'));
 }
 
 void _onErrorFactory(

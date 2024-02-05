@@ -1,0 +1,62 @@
+import 'package:base_starter/src/core/configs/dialogs/app_dialogs.dart';
+import 'package:base_starter/src/core/utils/extensions/context_extension.dart';
+import 'package:base_starter/src/feature/talker/utils/get_data_color.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:talker_flutter/talker_flutter.dart';
+
+class TalkerMonitorLogsScreen extends StatelessWidget {
+  const TalkerMonitorLogsScreen({
+    required this.exceptions,
+    required this.theme,
+    required this.typeName,
+    super.key,
+  });
+
+  final String typeName;
+  final TalkerScreenTheme theme;
+  final List<TalkerData> exceptions;
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+        backgroundColor: theme.backgroundColor,
+        appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back_rounded),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+          title: Text(
+            typeName,
+            style: const TextStyle(fontSize: 18),
+          ),
+        ),
+        body: CustomScrollView(
+          slivers: [
+            const SliverToBoxAdapter(child: SizedBox(height: 10)),
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  final data = exceptions[index];
+                  return TalkerDataCard(
+                    data: data,
+                    onCopyTap: () => _copyTalkerDataItemText(context, data),
+                    color: getTypeColor(data.title),
+                  );
+                },
+                childCount: exceptions.length,
+              ),
+            ),
+          ],
+        ),
+      );
+
+  void _copyTalkerDataItemText(BuildContext context, TalkerData data) {
+    final text = data.generateTextMessage();
+    Clipboard.setData(ClipboardData(text: text));
+    _showSnackBar(context, context.l10n.log_item_copied);
+  }
+
+  void _showSnackBar(BuildContext context, String text) {
+    AppDialogs.showToast(context, title: text);
+  }
+}

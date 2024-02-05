@@ -14,6 +14,42 @@
             "problemMatcher": []
         },
         {
+         "label": "Build apk",
+         "type": "shell",
+         "command": [
+             "flutter build appbundle --flavor prod --target lib/main.dart --obfuscate --split-debug-info=build --no-tree-shake-icons"
+         ],
+         "group": {
+             "kind": "none",
+             "isDefault": true
+         },
+         "problemMatcher": []
+     },
+     {
+      "label": "Build ipa",
+      "type": "shell",
+      "command": [
+          "flutter build ipa --flavor prod --target lib/main.dart --obfuscate --split-debug-info=build --no-tree-shake-icons"
+      ],
+      "group": {
+          "kind": "none",
+          "isDefault": true
+      },
+      "problemMatcher": []
+  },
+  {
+   "label": "Build appbundle",
+   "type": "shell",
+   "command": [
+       "flutter build appbundle --flavor prod --target lib/main.dart --obfuscate --split-debug-info=build --no-tree-shake-icons"
+   ],
+   "group": {
+       "kind": "none",
+       "isDefault": true
+   },
+   "problemMatcher": []
+},
+        {
             "label": "Run codegen",
             "type": "shell",
             "command": [

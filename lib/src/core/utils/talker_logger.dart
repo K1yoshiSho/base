@@ -8,9 +8,7 @@ import 'package:talker_flutter/talker_flutter.dart';
 /// [Talker] - This class contains methods for handling errors and logging.
 
 final Talker talker = TalkerFlutter.init(
-  settings: TalkerSettings(
-    
-  ),
+  settings: TalkerSettings(),
 );
 
 /// `initHandling` - This function initializes handling of the app.
@@ -47,4 +45,16 @@ Future<void> initHandling() async {
         ],
         talker.handle(details.exception, details.stack),
       };
+}
+
+class GoodLog extends TalkerLog {
+  GoodLog(String super.message);
+
+  /// Your custom log title
+  @override
+  String get title => 'good';
+
+  /// Your custom log color
+  @override
+  AnsiPen get pen => AnsiPen()..xterm(121);
 }
