@@ -40,12 +40,14 @@ class TalkerMonitorLogsScreen extends StatelessWidget {
                   return TalkerDataCard(
                     data: data,
                     onCopyTap: () => _copyTalkerDataItemText(context, data),
-                    color: getTypeColor(data.title),
+                    color: getTypeColor(context: context, key: data.title),
+                    backgroundColor: context.colors.card,
                   );
                 },
                 childCount: exceptions.length,
               ),
             ),
+            const SliverToBoxAdapter(child: SizedBox(height: 10)),
           ],
         ),
       );

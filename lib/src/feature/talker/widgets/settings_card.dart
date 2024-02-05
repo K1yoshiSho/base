@@ -42,7 +42,6 @@ class TalkerSettingsCardItem extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                tileColor: backgroundColor,
                 contentPadding: EdgeInsets.zero,
                 title: Text(
                   title,
@@ -52,11 +51,8 @@ class TalkerSettingsCardItem extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                trailing: Switch.adaptive(
+                trailing: Switch(
                   value: enabled,
-                  trackColor: canEdit
-                      ? const MaterialStatePropertyAll<Color>(Colors.red)
-                      : const MaterialStatePropertyAll<Color>(Colors.grey),
                   onChanged: canEdit ? onChanged : null,
                 ),
               ),

@@ -124,5 +124,6 @@
    "use_console_logs": "Use console logs",
    "use_history": "Use history",
    "settings": "History",
-   "search": "Search"
+   "search": "Search",
+   "all_logs_copied": "All logs copied in buffer"
 }

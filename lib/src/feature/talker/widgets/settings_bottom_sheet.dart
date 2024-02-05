@@ -1,6 +1,7 @@
 // ignore_for_file: invalid_use_of_protected_member, invalid_use_of_visible_for_testing_member, implementation_imports
 
 import 'package:base_starter/src/core/utils/extensions/context_extension.dart';
+import 'package:base_starter/src/core/utils/talker_logger.dart';
 import 'package:base_starter/src/feature/talker/widgets/base_bottom_sheet.dart';
 import 'package:base_starter/src/feature/talker/widgets/settings_card.dart';
 import 'package:flutter/material.dart';
@@ -35,22 +36,7 @@ class _TalkerSettingsBottomSheetState
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final settings = <Widget>[
-      Padding(
-        padding:
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 12).copyWith(
-          top: 0,
-        ),
-        child: Text(
-          context.l10n.basic_settings,
-          style: theme.textTheme.titleLarge?.copyWith(
-            color: widget.talkerScreenTheme.textColor,
-            fontSize: 18,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-      ),
       TalkerSettingsCardItem(
         talkerScreenTheme: widget.talkerScreenTheme,
         title: context.l10n.enabled,

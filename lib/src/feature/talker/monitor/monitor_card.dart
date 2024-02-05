@@ -1,5 +1,6 @@
 // ignore_for_file: implementation_imports
 
+import 'package:base_starter/src/core/utils/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:talker_flutter/src/ui/widgets/base_card.dart';
 import 'package:talker_flutter/talker_flutter.dart';
@@ -29,6 +30,7 @@ class TalkerMonitorsCard extends StatelessWidget {
         onTap: onTap,
         child: TalkerBaseCard(
           color: color,
+          backgroundColor: context.colors.card,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -52,10 +54,7 @@ class TalkerMonitorsCard extends StatelessWidget {
                           if (subtitle != null)
                             Text(
                               subtitle!,
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 14,
-                              ),
+                              style: context.theme.textTheme.bodyMedium,
                             ),
                           if (subtitleWidget != null) subtitleWidget!,
                         ],

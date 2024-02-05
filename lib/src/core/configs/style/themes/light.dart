@@ -30,7 +30,7 @@ ThemeData getBaseLightTheme({required Color seed}) {
         divider: Colors.grey[300]!,
         text: Colors.black,
         border: Colors.grey[400]!,
-        card: const Color(0xfffdf9fd),
+        card: Colors.grey.withOpacity(0.05),
         shadow: const Color.fromARGB(255, 211, 211, 211),
         shimmerBase: const Color(0xffB4B4B4),
         shimmerHighlight: Colors.white,

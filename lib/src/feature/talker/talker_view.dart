@@ -103,7 +103,7 @@ class _TalkerViewState extends State<TalkerView> {
                         backgroundColor: widget.theme.cardColor,
                         onCopyTap: () => _copyTalkerDataItemText(data),
                         expanded: _controller.expandedLogs,
-                        color: getTypeColor(data.title),
+                        color: getTypeColor(context: context, key: data.title),
                       );
                     },
                     childCount: filtredElements.length,
@@ -228,6 +228,6 @@ class _TalkerViewState extends State<TalkerView> {
 
   void _copyAllLogs(BuildContext context) {
     Clipboard.setData(ClipboardData(text: widget.talker.history.text));
-    _showSnackBar(context, 'All logs copied in buffer');
+    _showSnackBar(context, context.l10n.all_logs_copied);
   }
 }
