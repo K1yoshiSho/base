@@ -43,11 +43,13 @@ final class AppDialogs {
       ..loadingStyle = EasyLoadingStyle.custom
       ..indicatorSize = 45
       ..radius = 16
-      ..textStyle = context.theme.textTheme.bodyLarge
+      ..textStyle = context.theme.textTheme.bodyLarge?.copyWith(
+        color: Colors.white,
+      )
       ..progressColor = context.theme.primaryColor
-      ..backgroundColor = context.theme.colorScheme.background
+      ..backgroundColor = const Color(0xff656565)
       ..indicatorColor = context.theme.primaryColor
-      ..textColor = context.colors.text
+      ..textColor = Colors.white
       ..maskColor = context.theme.colorScheme.background
       ..userInteractions = true
       ..toastPosition = EasyLoadingToastPosition.bottom

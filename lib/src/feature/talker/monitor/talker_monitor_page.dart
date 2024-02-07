@@ -162,32 +162,44 @@ class TalkerMonitorPage extends StatelessWidget {
                             context.l10n.talker_bloc_events_count(
                               blocEvents.length,
                             ),
-                            style: const TextStyle(
-                              color: Color(0xFF63FAFE),
+                            style: TextStyle(
+                              color: getTypeColor(
+                                context: context,
+                                key: "bloc-event",
+                              ),
                             ),
                           ),
                           Text(
                             context.l10n.talker_bloc_transition_count(
                               blocTransitions.length,
                             ),
-                            style: const TextStyle(
-                              color: Color(0xFF56FEA8),
+                            style: TextStyle(
+                              color: getTypeColor(
+                                context: context,
+                                key: "bloc-transition",
+                              ),
                             ),
                           ),
                           Text(
                             context.l10n.talker_bloc_create_count(
                               blocCreates.length,
                             ),
-                            style: const TextStyle(
-                              color: Color.fromARGB(255, 120, 230, 129),
+                            style: TextStyle(
+                              color: getTypeColor(
+                                context: context,
+                                key: "bloc-create",
+                              ),
                             ),
                           ),
                           Text(
                             context.l10n.talker_bloc_close_count(
                               blocCloses.length,
                             ),
-                            style: const TextStyle(
-                              color: Color(0xFFFF005F),
+                            style: TextStyle(
+                              color: getTypeColor(
+                                context: context,
+                                key: "bloc-close",
+                              ),
                             ),
                           ),
                         ],
@@ -273,7 +285,7 @@ class TalkerMonitorPage extends StatelessWidget {
                     child: TalkerMonitorsCard(
                       logs: goods,
                       title: context.l10n.talker_type_good,
-                      color: getTypeColor("good"),
+                      color: getTypeColor(context: context, key: "good"),
                       icon: Icons.check_circle_outline_rounded,
                       subtitle:
                           context.l10n.talker_type_good_count(goods.length),

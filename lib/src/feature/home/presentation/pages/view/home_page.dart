@@ -86,8 +86,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 const _ThemeSelector(Colors.accents),
-                SwitchListTile.adaptive(
-                  activeColor: context.theme.colorScheme.primaryContainer,
+                SwitchListTile(
                   title: Text(
                     context.l10n.change_theme,
                     style: context.theme.textTheme.titleMedium?.copyWith(

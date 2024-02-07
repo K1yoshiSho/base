@@ -57,4 +57,6 @@ extension ContextExtension on BuildContext {
   AppColorsExtension get colors => theme.extension<AppColorsExtension>()!;
 
   AppLocalizations get l10n => Localization.of(this);
+
+  bool get isDark => theme.brightness == Brightness.dark;
 }

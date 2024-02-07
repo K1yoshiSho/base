@@ -9,6 +9,9 @@ import 'package:talker_flutter/talker_flutter.dart';
 
 final Talker talker = TalkerFlutter.init(
   settings: TalkerSettings(),
+  logger: TalkerLogger(
+    settings: TalkerLoggerSettings(),
+  ),
 );
 
 /// `initHandling` - This function initializes handling of the app.

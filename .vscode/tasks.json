@@ -5,7 +5,7 @@
             "label": "Get dependencies",
             "type": "shell",
             "command": [
-                "flutter pub get"
+                "fvm flutter pub get"
             ],
             "group": {
                 "kind": "none",
@@ -17,7 +17,7 @@
          "label": "Build apk",
          "type": "shell",
          "command": [
-             "flutter build appbundle --flavor prod --target lib/main.dart --obfuscate --split-debug-info=build --no-tree-shake-icons"
+             "fvm flutter build appbundle --target lib/main.dart --obfuscate --split-debug-info=build --no-tree-shake-icons"
          ],
          "group": {
              "kind": "none",
@@ -29,7 +29,7 @@
       "label": "Build ipa",
       "type": "shell",
       "command": [
-          "flutter build ipa --flavor prod --target lib/main.dart --obfuscate --split-debug-info=build --no-tree-shake-icons"
+          "fvm flutter build ipa --target lib/main.dart --obfuscate --split-debug-info=build --no-tree-shake-icons"
       ],
       "group": {
           "kind": "none",
@@ -41,7 +41,7 @@
    "label": "Build appbundle",
    "type": "shell",
    "command": [
-       "flutter build appbundle --flavor prod --target lib/main.dart --obfuscate --split-debug-info=build --no-tree-shake-icons"
+       "fvm flutter build appbundle --target lib/main.dart --obfuscate --split-debug-info=build --no-tree-shake-icons"
    ],
    "group": {
        "kind": "none",

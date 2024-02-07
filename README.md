@@ -106,3 +106,6 @@ If you don't need the database, just remove the dependency.
 3. Go to `lib/src/feature/initialization/logic/initialization_steps.dart`
 4. Add new entry to the map and write down all the logic needed to initialize your dependency and set it in the `DependenciesMutable` object
 5. Now, you can use the dependency in the app receiving it from context.
+
+### How do add flavors correctly:
+You can use template from `very_good_cli``.

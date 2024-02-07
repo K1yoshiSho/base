@@ -23,6 +23,7 @@ class TalkerActionsBottomSheet extends StatelessWidget {
           decoration: BoxDecoration(
             color: talkerScreenTheme.cardColor,
             borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: context.colors.divider),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,

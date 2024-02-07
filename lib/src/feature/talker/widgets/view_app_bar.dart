@@ -44,121 +44,125 @@ class TalkerAppBar extends StatelessWidget {
   final Function(String title, bool selected) onToggleTitle;
 
   @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return SliverAppBar(
-      backgroundColor: talkerTheme.backgroundColor,
-      elevation: 0,
-      pinned: true,
-      floating: true,
-      expandedHeight: 174,
-      collapsedHeight: 60,
-      toolbarHeight: 60,
-      leading: leading,
-      iconTheme: IconThemeData(color: talkerTheme.textColor),
-      actions: [
-        UnconstrainedBox(
-          child: _MonitorButton(
-            talker: talker,
-            onPressed: onMonitorTap,
-            talkerTheme: talkerTheme,
-          ),
-        ),
-        UnconstrainedBox(
-          child: IconButton(
-            onPressed: onSettingsTap,
-            icon: Icon(
-              Icons.settings_rounded,
-              color: talkerTheme.textColor,
+  Widget build(BuildContext context) => SliverAppBar(
+        backgroundColor: talkerTheme.backgroundColor,
+        elevation: 0,
+        pinned: true,
+        floating: true,
+        expandedHeight: 174,
+        collapsedHeight: 60,
+        toolbarHeight: 60,
+        leading: leading,
+        iconTheme: IconThemeData(color: talkerTheme.textColor),
+        actions: [
+          UnconstrainedBox(
+            child: _MonitorButton(
+              talker: talker,
+              onPressed: onMonitorTap,
+              talkerTheme: talkerTheme,
             ),
           ),
-        ),
-        UnconstrainedBox(
-          child: IconButton(
-            onPressed: onActionsTap,
-            icon: Icon(
-              Icons.menu_rounded,
-              color: talkerTheme.textColor,
-            ),
-          ),
-        ),
-        const SizedBox(width: 10),
-      ],
-      title: title != null
-          ? Text(
-              title!,
-              style: TextStyle(
+          UnconstrainedBox(
+            child: IconButton(
+              onPressed: onSettingsTap,
+              icon: Icon(
+                Icons.settings_rounded,
                 color: talkerTheme.textColor,
               ),
-            )
-          : null,
-      flexibleSpace: FlexibleSpaceBar(
-        background: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 60),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 50,
-                  child: ListView(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                    ),
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      GroupButton(
-                        controller: titlesController,
-                        isRadio: false,
-                        buttonBuilder: (selected, value, context) {
-                          final count = titles.where((e) => e == value).length;
-                          return Container(
-                            padding: const EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                color: selected
-                                    ? theme.primaryColor
-                                    : context.colors.border,
-                              ),
-                              color: selected
-                                  ? theme.primaryColor
-                                  : talkerTheme.cardColor,
-                            ),
-                            child: Row(
-                              children: [
-                                Text(
-                                  '$count  $value',
-                                  style: context.theme.textTheme.bodyMedium!
-                                      .copyWith(
-                                    color: selected
-                                        ? talkerTheme.backgroundColor
-                                        : talkerTheme.textColor,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                        onSelected: (_, i, selected) =>
-                            _onToggle(uniqTitles[i], selected),
-                        buttons: uniqTitles,
+            ),
+          ),
+          UnconstrainedBox(
+            child: IconButton(
+              onPressed: onActionsTap,
+              icon: Icon(
+                Icons.menu_rounded,
+                color: talkerTheme.textColor,
+              ),
+            ),
+          ),
+          const SizedBox(width: 10),
+        ],
+        title: title != null
+            ? Text(
+                title!,
+                style: TextStyle(
+                  color: talkerTheme.textColor,
+                ),
+              )
+            : null,
+        flexibleSpace: FlexibleSpaceBar(
+          background: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 60),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 50,
+                    child: ListView(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16,
                       ),
-                    ],
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        GroupButton(
+                          controller: titlesController,
+                          isRadio: false,
+                          buttonBuilder: (selected, value, context) {
+                            final count =
+                                titles.where((e) => e == value).length;
+                            return Container(
+                              padding: const EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                  color: selected
+                                      ? context.isDark
+                                          ? context.theme.colorScheme
+                                              .primaryContainer
+                                          : context.theme.colorScheme.primary
+                                      : context.colors.border,
+                                ),
+                                color: selected
+                                    ? context.isDark
+                                        ? context
+                                            .theme.colorScheme.primaryContainer
+                                        : context.theme.colorScheme.primary
+                                    : talkerTheme.cardColor,
+                              ),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    '$count  $value',
+                                    style: context.theme.textTheme.bodyMedium!
+                                        .copyWith(
+                                      color: selected
+                                          ? Colors.white
+                                          : talkerTheme.textColor,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                          onSelected: (_, i, selected) =>
+                              _onToggle(uniqTitles[i], selected),
+                          buttons: uniqTitles,
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                const SizedBox(height: 4),
-                _SearchTextField(
-                  controller: controller,
-                  focusNode: focusNode,
-                  talkerTheme: talkerTheme,
-                ),
-              ],
+                  const SizedBox(height: 4),
+                  _SearchTextField(
+                    controller: controller,
+                    focusNode: focusNode,
+                    talkerTheme: talkerTheme,
+                  ),
+                ],
+              ),
             ),
           ),
         ),
-      ),
-    );
-  }
+      );
 
   void _onToggle(String? title, bool selected) {
     if (title == null) return;
@@ -187,6 +191,9 @@ class _SearchTextField extends StatelessWidget {
           color: talkerTheme.textColor,
           fontSize: 14,
         ),
+        cursorColor: context.isDark
+            ? context.theme.colorScheme.primaryContainer
+            : context.theme.colorScheme.primary,
         focusNode: focusNode,
         onTapOutside: (event) {
           FocusManager.instance.primaryFocus?.unfocus();
@@ -197,6 +204,14 @@ class _SearchTextField extends StatelessWidget {
         onChanged: controller.updateFilterSearchQuery,
         decoration: InputDecoration(
           fillColor: theme.cardColor,
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: context.isDark
+                  ? context.theme.colorScheme.primaryContainer
+                  : context.theme.colorScheme.primary,
+            ),
+            borderRadius: BorderRadius.circular(10),
+          ),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: context.colors.border),
             borderRadius: BorderRadius.circular(10),
@@ -209,7 +224,9 @@ class _SearchTextField extends StatelessWidget {
           prefixIcon: Icon(
             Icons.search,
             color: focusNode == FocusScope.of(context).focusedChild
-                ? context.theme.primaryColor
+                ? context.isDark
+                    ? context.theme.colorScheme.primaryContainer
+                    : context.theme.colorScheme.primary
                 : context.colors.border,
             size: 20,
           ),

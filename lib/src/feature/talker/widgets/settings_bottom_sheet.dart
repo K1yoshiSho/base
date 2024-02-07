@@ -35,22 +35,7 @@ class _TalkerSettingsBottomSheetState
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final settings = <Widget>[
-      Padding(
-        padding:
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 12).copyWith(
-          top: 0,
-        ),
-        child: Text(
-          context.l10n.basic_settings,
-          style: theme.textTheme.titleLarge?.copyWith(
-            color: widget.talkerScreenTheme.textColor,
-            fontSize: 18,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-      ),
       TalkerSettingsCardItem(
         talkerScreenTheme: widget.talkerScreenTheme,
         title: context.l10n.enabled,
