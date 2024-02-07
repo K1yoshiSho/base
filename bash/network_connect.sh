@@ -1,8 +1,8 @@
-ID_APPLICATION=""
+IP_ADDRESS=""
 
 # Функция для вывода инструкции по использованию скрипта
 usage() {
-    echo "Использование: $0 --id [ID приложения]. Пример: --id com.company.app"
+    echo "Использование: $0 --ip [IP-адрес]"
     exit 1
 }
 
@@ -11,13 +11,13 @@ while [[ $# -gt 0 ]]; do
     key="$1"
 
     case $key in
-        --id)
+        --ip)
         if [ -z "$2" ]; then
-            echo "Ошибка: после --id не указан ID для вашего приложения: (com.company.app)."
+            echo "Ошибка: после --ip не указан IP-адрес."
             usage
             exit 1
         fi
-        ID_APPLICATION="$2"
+        IP_ADDRESS="$2"
         shift # past argument
         shift # past value
         ;;
@@ -29,11 +29,12 @@ while [[ $# -gt 0 ]]; do
 done
 
 # Проверка, был ли предоставлен IP-адрес
-if [ -z "$ID_APPLICATION" ]; then
-    echo "Ошибка: ID не указан."
+if [ -z "$IP_ADDRESS" ]; then
+    echo "Ошибка: IP-адрес не указан."
     usage
     exit 1
 else
-    echo "Создание приложения для: $ID_APPLICATION"
-    fvm flutter create . --org $ID_APPLICATION --platforms ios,android
+    echo "Подключение к IP: $IP_ADDRESS"
+    adb tcpip 5555
+    adb connect $IP_ADDRESS
 fi

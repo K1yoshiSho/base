@@ -1,7 +1,6 @@
 // ignore_for_file: invalid_use_of_protected_member, invalid_use_of_visible_for_testing_member, implementation_imports
 
 import 'package:base_starter/src/core/utils/extensions/context_extension.dart';
-import 'package:base_starter/src/core/utils/talker_logger.dart';
 import 'package:base_starter/src/feature/talker/widgets/base_bottom_sheet.dart';
 import 'package:base_starter/src/feature/talker/widgets/settings_card.dart';
 import 'package:flutter/material.dart';
