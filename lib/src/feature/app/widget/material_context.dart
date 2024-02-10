@@ -1,6 +1,8 @@
 import 'package:base_starter/src/core/localization/localization.dart';
-import 'package:base_starter/src/feature/home/presentation/pages/home.dart';
-import 'package:base_starter/src/feature/settings/presentation/settings_scope.dart';
+import 'package:base_starter/src/core/router/router.dart';
+import 'package:base_starter/src/core/views/widgets/other/feedback_body.dart';
+import 'package:base_starter/src/feature/settings/presentation/settings.dart';
+import 'package:feedback_plus/feedback_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
@@ -11,7 +13,9 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 /// {@endtemplate}
 class MaterialContext extends StatelessWidget {
   /// {@macro material_context}
-  const MaterialContext({super.key});
+  const MaterialContext({required this.routerConfig, super.key});
+
+  final GoRouter routerConfig;
 
   // This global key is needed for [MaterialApp]
   // to work properly when Widgets Inspector is enabled.
@@ -22,24 +26,67 @@ class MaterialContext extends StatelessWidget {
     final theme = SettingsScope.themeOf(context).theme;
     final locale = SettingsScope.localeOf(context).locale;
 
-    return MaterialApp(
-      key: _globalKey,
-      theme: theme.lightTheme,
-      darkTheme: theme.darkTheme,
+    return BetterFeedback(
       themeMode: theme.mode,
       localizationsDelegates: Localization.localizationDelegates,
-      supportedLocales: Localization.supportedLocales,
-      locale: locale,
-      home: const HomeScreen(),
-      builder: (context, child) {
-        child = EasyLoading.init()(context, child);
-        child = MediaQuery.withClampedTextScaling(
-          minScaleFactor: 1.0,
-          maxScaleFactor: 2.0,
-          child: child,
-        );
-        return child;
-      },
+      localeOverride: locale,
+      theme: FeedbackThemeData(
+        background: Colors.grey[800]!,
+        feedbackSheetColor: theme.lightTheme.colorScheme.surface,
+        activeFeedbackModeColor: theme.lightTheme.colorScheme.primary,
+        colorScheme: theme.lightTheme.colorScheme,
+        cardColor: theme.lightTheme.scaffoldBackgroundColor,
+        bottomSheetDescriptionStyle:
+            theme.lightTheme.textTheme.bodyMedium!.copyWith(
+          color: Colors.grey[800],
+        ),
+        dragHandleColor: Colors.grey[400],
+        inactiveColor: Colors.grey[700]!,
+        textColor: Colors.grey[800]!,
+      ),
+      darkTheme: FeedbackThemeData(
+        background: Colors.grey[800]!,
+        feedbackSheetColor: theme.darkTheme.colorScheme.surface,
+        activeFeedbackModeColor: theme.darkTheme.colorScheme.primary,
+        colorScheme: theme.darkTheme.colorScheme,
+        cardColor: theme.darkTheme.scaffoldBackgroundColor,
+        bottomSheetDescriptionStyle:
+            theme.lightTheme.textTheme.bodyMedium!.copyWith(
+          color: Colors.grey[300],
+        ),
+        dragHandleColor: Colors.grey[400],
+        inactiveColor: Colors.grey[600]!,
+        textColor: Colors.grey[300]!,
+      ),
+      mode: FeedbackMode.navigate,
+      feedbackBuilder: (context, extras, scrollController) =>
+          simpleFeedbackBuilder(
+        context,
+        extras,
+        scrollController,
+        theme.computeTheme(),
+      ),
+      child: MaterialApp.router(
+        key: _globalKey,
+        title: 'Base',
+        onGenerateTitle: (context) => "Base",
+        theme: theme.lightTheme,
+        darkTheme: theme.darkTheme,
+        themeMode: theme.mode,
+        localizationsDelegates: Localization.localizationDelegates,
+        supportedLocales: Localization.supportedLocales,
+        locale: locale,
+        routerConfig: routerConfig,
+        builder: (context, child) {
+          child = EasyLoading.init()(context, child);
+          child = MediaQuery.withClampedTextScaling(
+            minScaleFactor: 1.0,
+            maxScaleFactor: 2.0,
+            child: child,
+          );
+          return child;
+        },
+      ),
     );
   }
 }

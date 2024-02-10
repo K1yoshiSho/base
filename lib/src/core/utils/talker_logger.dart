@@ -61,3 +61,15 @@ class GoodLog extends TalkerLog {
   @override
   AnsiPen get pen => AnsiPen()..xterm(121);
 }
+
+class RouteLog extends TalkerLog {
+  RouteLog(String super.message);
+
+  /// Your custom log title
+  @override
+  String get title => 'route';
+
+  /// Your custom log color
+  @override
+  AnsiPen get pen => AnsiPen()..rgb(r: 0.5, g: 0.5);
+}

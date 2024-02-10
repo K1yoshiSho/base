@@ -1,4 +1,4 @@
-part of '../pages/home.dart';
+part of '../settings.dart';
 
 class _LanguagesSelector extends StatelessWidget {
   const _LanguagesSelector(this._languages);

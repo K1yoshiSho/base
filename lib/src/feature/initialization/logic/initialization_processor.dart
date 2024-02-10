@@ -24,6 +24,7 @@ mixin InitializationProcessor {
     final progress = InitializationProgress(
       dependencies: Dependencies(),
       environmentStore: env,
+      repositories: Repositories(),
     );
 
     if (!kDebugMode) {}
@@ -52,6 +53,7 @@ mixin InitializationProcessor {
     stopwatch.stop();
     final result = InitializationResult(
       dependencies: progress.dependencies,
+      repositories: progress.repositories,
       stepCount: stepCount,
       msSpent: stopwatch.elapsedMilliseconds,
     );

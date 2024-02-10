@@ -1,4 +1,4 @@
-part of '../pages/home.dart';
+part of '../settings.dart';
 
 class _ThemeSelector extends StatelessWidget {
   const _ThemeSelector(this._colors);

@@ -1,9 +1,4 @@
-import 'package:base_starter/src/core/localization/localization.dart';
-import 'package:base_starter/src/core/utils/extensions/context_extension.dart';
-import 'package:base_starter/src/feature/app/model/app_theme.dart';
-import 'package:base_starter/src/feature/settings/bloc/settings_bloc.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+part of 'settings.dart';
 
 /// {@template theme_scope_controller}
 /// A controller that holds and operates the app theme.

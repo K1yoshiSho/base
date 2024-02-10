@@ -89,7 +89,7 @@ final class AppDialogs {
     await EasyLoading.dismiss();
     if (context.mounted) {
       await EasyLoading.showToast(
-        title ?? context.l10n.requestSuccess,
+        title ?? context.l10n.request_success,
         duration: const Duration(seconds: 1),
         maskType: EasyLoadingMaskType.clear,
         toastPosition: EasyLoadingToastPosition.bottom,
@@ -172,7 +172,7 @@ final class AppDialogs {
       ..dismissOnTap = false;
     EasyLoading.dismiss();
     EasyLoading.showSuccess(
-      title ?? context.l10n.requestSuccess,
+      title ?? context.l10n.request_success,
       duration: const Duration(seconds: 1),
       maskType: EasyLoadingMaskType.black,
       dismissOnTap: true,
