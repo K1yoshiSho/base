@@ -41,7 +41,9 @@ final class AppRunner
         );
 
         FlutterNativeSplash.remove();
-        runApp(App(result: result));
+        runApp(
+          App(result: result),
+        );
       } catch (e) {
         rethrow;
       } finally {

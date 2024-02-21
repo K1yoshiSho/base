@@ -15,6 +15,13 @@ base class Dependencies {
   late final SettingsBloc settingsBloc;
 }
 
+/// {@template dependencies}
+/// Repositories container
+/// {@endtemplate}
+base class Repositories {
+  Repositories();
+}
+
 /// {@template initialization_result}
 /// Result of initialization
 /// {@endtemplate}
@@ -22,12 +29,16 @@ final class InitializationResult {
   /// {@macro initialization_result}
   const InitializationResult({
     required this.dependencies,
+    required this.repositories,
     required this.stepCount,
     required this.msSpent,
   });
 
   /// The dependencies
   final Dependencies dependencies;
+
+  /// The repositories
+  final Repositories repositories;
 
   /// The number of steps
   final int stepCount;
@@ -38,6 +49,7 @@ final class InitializationResult {
   @override
   String toString() => '$InitializationResult('
       'dependencies: $dependencies, '
+      'repositories: $repositories, '
       'stepCount: $stepCount, '
       'msSpent: $msSpent'
       ')';

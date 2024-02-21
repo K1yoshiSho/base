@@ -1,5 +1,5 @@
-import 'package:base_starter/src/core/components/database/database.dart';
-import 'package:base_starter/src/core/components/database/src/tables/todos_table.dart';
+import 'package:base_starter/src/core/resource/data/database/database.dart';
+import 'package:base_starter/src/core/resource/data/database/src/tables/todos_table.dart';
 import 'package:drift/drift.dart';
 
 part 'app_database.g.dart';

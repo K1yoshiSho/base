@@ -12,21 +12,32 @@ class DependenciesScope extends InheritedWidget {
   const DependenciesScope({
     required super.child,
     required this.dependencies,
+    required this.repositories,
     super.key,
   });
 
   /// The dependencies
   final Dependencies dependencies;
 
+  /// The repositories
+  final Repositories repositories;
+
   /// Get the dependencies from the [context].
   static Dependencies of(BuildContext context) =>
       context.inhOf<DependenciesScope>(listen: false).dependencies;
+
+  /// Get the repositories from the [context].
+  static Repositories repositoriesOf(BuildContext context) =>
+      context.inhOf<DependenciesScope>(listen: false).repositories;
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties.add(
       DiagnosticsProperty<Dependencies>('dependencies', dependencies),
+    );
+    properties.add(
+      DiagnosticsProperty<Repositories>('repositories', repositories),
     );
   }
 
