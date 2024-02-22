@@ -39,15 +39,15 @@ Future<void> initHandling() async {
     return true;
   };
 
-  FlutterError.onError = (details) => {
-        if (const EnvironmentStore().environment.value == "Production" &&
-            // ignore: inference_failure_on_collection_literal
-            kDebugMode == false) ...[
-          // FirebaseCrashlytics.instance
-          //     .recordError(details.exception, details.stack),
-        ],
-        talker.handle(details.exception, details.stack),
-      };
+  FlutterError.onError = (details) {
+    if (const EnvironmentStore().environment.value == "Production" &&
+        // ignore: inference_failure_on_collection_literal
+        kDebugMode == false) {
+      // FirebaseCrashlytics.instance
+      //     .recordError(details.exception, details.stack),
+    }
+    talker.handle(details.exception, details.stack);
+  };
 }
 
 class GoodLog extends TalkerLog {
