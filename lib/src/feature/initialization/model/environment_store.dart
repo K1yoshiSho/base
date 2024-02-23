@@ -1,10 +1,7 @@
 import 'package:base_starter/src/feature/initialization/model/environment.dart';
 
-/// {@template environment_store}
 /// Environment store
-/// {@endtemplate}
 class EnvironmentStore {
-  /// {@macro environment_store}
   const EnvironmentStore();
 
   /// The environment.

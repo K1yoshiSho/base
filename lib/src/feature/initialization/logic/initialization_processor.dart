@@ -1,4 +1,3 @@
-import 'package:base_starter/src/core/utils/talker_logger.dart';
 import 'package:base_starter/src/feature/initialization/logic/initialization_steps.dart';
 import 'package:base_starter/src/feature/initialization/model/dependencies.dart';
 import 'package:base_starter/src/feature/initialization/model/environment_store.dart';
@@ -8,9 +7,7 @@ import 'package:flutter/foundation.dart';
 
 part 'initialization_factory.dart';
 
-/// {@template initialization_processor}
 /// A class which is responsible for processing initialization steps.
-/// {@endtemplate}
 mixin InitializationProcessor {
   /// Process initialization steps.
   Future<InitializationResult> processInitialization({
@@ -29,9 +26,9 @@ mixin InitializationProcessor {
 
     if (!kDebugMode) {}
     hook.onInit?.call();
-    talker.info(
-      "🔉 Initialization started in ${env.environment.value} (${env.environment.name}) mode",
-    );
+    // talker.info(
+    //   "🔉 ${config.appName} app started in ${config.flavor} mode",
+    // );
     try {
       await for (final step in Stream.fromIterable(steps.entries)) {
         stepCount++;
@@ -62,11 +59,8 @@ mixin InitializationProcessor {
   }
 }
 
-/// {@template initialization_step_info}
 /// A class which contains information about initialization step.
-/// {@endtemplate}
 class InitializationStepInfo {
-  /// {@macro initialization_step_info}
   const InitializationStepInfo({
     required this.stepName,
     required this.step,

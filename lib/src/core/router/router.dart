@@ -18,7 +18,7 @@ export 'package:go_router/go_router.dart';
 
 /// This line declares a global key variable which is used to access the [NavigatorState] object associated with a widget.
 
-final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 /// This function returns a [CustomTransitionPage] widget with default fade animation.
 
@@ -165,19 +165,19 @@ GoRouter createRouter() => GoRouter(
               ),
             ),
             GoRoute(
-              name: TalkerPage.name,
-              path: TalkerPage.routePath,
+              name: LoggerPage.name,
+              path: LoggerPage.routePath,
               pageBuilder: (context, pathParameters) {
                 final Map<String, dynamic>? args =
                     pathParameters.extra as Map<String, dynamic>?;
                 return CupertinoPage(
-                  child: TalkerPage(
-                    talker: args?[TalkerPage.paramTalker] as Talker,
+                  child: LoggerPage(
+                    talker: args?[LoggerPage.paramTalker] as Talker,
                     appBarTitle:
-                        args?[TalkerPage.paramTitle] as String? ?? "Logger",
-                    theme: args?[TalkerPage.paramTheme] as TalkerScreenTheme? ??
+                        args?[LoggerPage.paramTitle] as String? ?? "Logger",
+                    theme: args?[LoggerPage.paramTheme] as TalkerScreenTheme? ??
                         const TalkerScreenTheme(),
-                    itemsBuilder: args?[TalkerPage.paramItemBuilder] as Widget
+                    itemsBuilder: args?[LoggerPage.paramItemBuilder] as Widget
                         Function(BuildContext, TalkerData)?,
                   ),
                 );

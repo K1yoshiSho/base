@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:base_starter/src/core/utils/talker_logger.dart';
+import 'package:base_starter/src/core/views/pages/restart_wrapper.dart';
 import 'package:base_starter/src/feature/app/widget/app.dart';
 import 'package:base_starter/src/feature/initialization/logic/initialization_processor.dart';
 import 'package:base_starter/src/feature/initialization/logic/initialization_steps.dart';
@@ -11,16 +12,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
-/// {@template app_runner}
 /// A class which is responsible for initialization and running the app.
-/// {@endtemplate}
 final class AppRunner
     with
         InitializationSteps,
         InitializationProcessor,
         InitializationFactoryImpl {
   /// Start the initialization and in case of success run application
-  Future<void> initializeAndRun(InitializationHook hook) async {
+  Future<void> initializeAndRun(
+    InitializationHook hook,
+  ) async {
     final binding = WidgetsFlutterBinding.ensureInitialized()
       ..deferFirstFrame();
 
@@ -42,7 +43,11 @@ final class AppRunner
 
         FlutterNativeSplash.remove();
         runApp(
-          App(result: result),
+          RestartWrapper(
+            child: App(
+              result: result,
+            ),
+          ),
         );
       } catch (e) {
         rethrow;

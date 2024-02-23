@@ -2,9 +2,7 @@ import 'package:base_starter/src/core/utils/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-/// {@template initialization_failed_screen}
 /// InitializationFailedScreen widget
-/// {@endtemplate}
 class InitializationFailedApp extends StatefulWidget {
   /// The error that caused the initialization to fail.
   final Object error;
@@ -17,7 +15,6 @@ class InitializationFailedApp extends StatefulWidget {
   /// If null, the retry button will not be shown.
   final Future<void> Function()? retryInitialization;
 
-  /// {@macro initialization_failed_screen}
   const InitializationFailedApp({
     required this.error,
     required this.stackTrace,

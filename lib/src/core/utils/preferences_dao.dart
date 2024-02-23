@@ -1,14 +1,11 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-/// {@template preferences_dao}
 /// Class that provides seamless access to the shared preferences.
-///
 /// Inspired by https://pub.dev/packages/typed_preferences
-/// {@endtemplate}
+
 abstract base class PreferencesDao {
   final SharedPreferences _sharedPreferences;
 
-  /// {@macro preferences_dao}
   const PreferencesDao({required SharedPreferences sharedPreferences})
       : _sharedPreferences = sharedPreferences;
 
@@ -44,12 +41,10 @@ abstract base class PreferencesDao {
       );
 }
 
-/// {@template preferences_entry}
 /// [PreferencesEntry] describes a single entry in the preferences.
 /// This is used to get and set values in the preferences.
-/// {@endtemplate}
+
 abstract base class PreferencesEntry<T extends Object> {
-  /// {@macro preferences_entry}
   const PreferencesEntry();
 
   /// The key of the entry in the preferences.

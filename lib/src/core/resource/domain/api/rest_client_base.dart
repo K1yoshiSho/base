@@ -6,10 +6,8 @@ import 'package:base_starter/src/core/resource/data/dio_rest_client/rest_client.
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
 
-/// {@macro rest_client}
 @immutable
 abstract base class RestClientBase implements RestClient {
-  /// {@macro rest_client}
   RestClientBase({required String baseUrl}) : baseUri = Uri.parse(baseUrl);
 
   /// The base url for the client

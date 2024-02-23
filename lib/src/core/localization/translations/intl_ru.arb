@@ -145,5 +145,18 @@
    "not_found": "Не найдена",
    "go_to_home": "Вернуться на главную",
    "refresh": "Обновить",
-   "fix": "Зафиксировать"
+   "fix": "Зафиксировать",
+   "clear_cache": "Очистить кэш",
+   "cache_cleared": "Кэш очищен",
+   "error_cache_clearing": "Ошибка очистки кэша",
+   "app_version": "Версия приложения",
+   "build_version": "Версия сборки",
+   "change_environment": "Изменить текущую среду",
+   "go_to_logger": "Перейти на страницу логгера",
+   "environment_tap_number": "Для открытия диалога осталось: {number}",
+   "@environment_tap_number": {
+      "placeholders": {
+         "number": {}
+      }
+   }
 }

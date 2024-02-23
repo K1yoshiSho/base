@@ -37,30 +37,22 @@ final class AppDialogs {
   }
 
   static void showToast(BuildContext context, {required String title}) {
-    EasyLoading.instance
-      ..displayDuration = const Duration(milliseconds: 1500)
-      ..indicatorType = EasyLoadingIndicatorType.dualRing
-      ..loadingStyle = EasyLoadingStyle.custom
-      ..indicatorSize = 45
-      ..radius = 16
-      ..textStyle = context.theme.textTheme.bodyLarge?.copyWith(
-        color: Colors.white,
-      )
-      ..progressColor = context.theme.primaryColor
-      ..backgroundColor = const Color(0xff656565)
-      ..indicatorColor = context.theme.primaryColor
-      ..textColor = Colors.white
-      ..maskColor = context.theme.colorScheme.background
-      ..userInteractions = true
-      ..toastPosition = EasyLoadingToastPosition.bottom
-      ..dismissOnTap = false;
-    EasyLoading.dismiss();
-    EasyLoading.showToast(
-      title,
-      duration: const Duration(seconds: 1),
-      maskType: EasyLoadingMaskType.clear,
-      toastPosition: EasyLoadingToastPosition.bottom,
-      dismissOnTap: true,
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        behavior: SnackBarBehavior.floating,
+        backgroundColor: const Color(0xff656565),
+        content: Text(
+          title,
+          style: context.theme.textTheme.bodyMedium?.copyWith(
+            color: Colors.white,
+          ),
+        ),
+      ),
     );
   }
 

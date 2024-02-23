@@ -1,9 +1,7 @@
 import 'package:base_starter/src/core/utils/extensions/colors_extension.dart';
 import 'package:flutter/material.dart';
 
-/// {@template app_theme}
 /// `getBaseLightTheme` is a function that returns a Light `ThemeData` for the app.
-/// {@endtemplate}
 ThemeData getBaseLightTheme({required Color seed}) {
   final ThemeData baseTheme = ThemeData.from(
     colorScheme: ColorScheme.fromSeed(

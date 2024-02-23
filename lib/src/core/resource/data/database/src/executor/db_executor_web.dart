@@ -3,7 +3,6 @@ import 'package:base_starter/src/core/utils/talker_logger.dart';
 import 'package:drift/drift.dart';
 import 'package:drift/wasm.dart';
 
-/// {@macro db_executor}
 QueryExecutor createExecutor() => DatabaseConnection.delayed(
       Future(() async {
         final result = await WasmDatabase.open(

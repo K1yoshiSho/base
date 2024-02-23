@@ -1,19 +1,20 @@
 import 'package:base_starter/src/core/router/router.dart';
+import 'package:base_starter/src/core/utils/constants.dart';
 import 'package:base_starter/src/core/utils/talker_logger.dart';
 import 'package:base_starter/src/feature/app/widget/material_context.dart';
-
+import 'package:base_starter/src/feature/initialization/logic/base_config.dart';
 import 'package:base_starter/src/feature/initialization/model/dependencies.dart';
+import 'package:base_starter/src/feature/initialization/model/environment.dart';
 import 'package:base_starter/src/feature/initialization/widget/dependencies_scope.dart';
+import 'package:base_starter/src/feature/initialization/widget/environment_scope.dart';
 import 'package:base_starter/src/feature/settings/presentation/settings.dart';
 
 import 'package:flutter/material.dart';
 
-/// {@template app}
 /// [App] is an entry point to the application.
 ///
 /// Scopes that don't depend on widgets returned by [MaterialApp]
 /// ([Directionality], [MediaQuery], [Localizations]) should be placed here.
-/// {@endtemplate}
 
 class App extends StatefulWidget {
   const App({required this.result, super.key});
@@ -35,6 +36,7 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   final _router = createRouter();
+  String? _environmentKey;
 
   @override
   void initState() {
@@ -45,17 +47,22 @@ class _AppState extends State<App> {
         ),
       );
     });
+    _environmentKey = widget.result.dependencies.sharedPreferences
+        .getString(Preferences.environment);
     super.initState();
   }
 
   @override
-  Widget build(BuildContext context) => DependenciesScope(
-        dependencies: widget.result.dependencies,
-        repositories: widget.result.repositories,
-        child: SettingsScope(
-          settingsBloc: widget.result.dependencies.settingsBloc,
-          child: MaterialContext(
-            routerConfig: _router,
+  Widget build(BuildContext context) => EnvironmentScope(
+        config: configMap[_environmentKey] ?? configMap[Environment.prod]!,
+        child: DependenciesScope(
+          dependencies: widget.result.dependencies,
+          repositories: widget.result.repositories,
+          child: SettingsScope(
+            settingsBloc: widget.result.dependencies.settingsBloc,
+            child: MaterialContext(
+              routerConfig: _router,
+            ),
           ),
         ),
       );

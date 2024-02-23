@@ -1,9 +1,7 @@
 import 'package:base_starter/src/core/utils/extensions/colors_extension.dart';
 import 'package:flutter/material.dart';
 
-/// {@template app_theme}
 /// `getBaseDarkTheme` is a function that returns a Dark `ThemeData` for the app.
-/// {@endtemplate}
 ThemeData getBaseDarkTheme({required Color seed}) {
   final ThemeData baseTheme = ThemeData.from(
     colorScheme: ColorScheme.fromSeed(

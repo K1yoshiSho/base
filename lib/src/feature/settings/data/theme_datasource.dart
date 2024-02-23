@@ -5,11 +5,8 @@ import 'package:base_starter/src/core/utils/preferences_dao.dart';
 import 'package:base_starter/src/feature/app/model/app_theme.dart';
 import 'package:flutter/material.dart' show ThemeMode, Color;
 
-/// {@template theme_datasource}
-/// [ThemeDataSource] is a data source that provides theme data.
-///
+/// `ThemeDataSource` is a data source that provides theme data.
 /// This is used to set and get theme.
-/// {@endtemplate}
 abstract interface class ThemeDataSource {
   /// Set theme
   Future<void> setTheme(AppTheme theme);
@@ -18,10 +15,8 @@ abstract interface class ThemeDataSource {
   Future<AppTheme?> getTheme();
 }
 
-/// {@macro theme_datasource}
 final class ThemeDataSourceLocal extends PreferencesDao
     implements ThemeDataSource {
-  /// {@macro theme_datasource}
   const ThemeDataSourceLocal({
     required super.sharedPreferences,
     required this.codec,

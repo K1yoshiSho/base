@@ -1,8 +1,6 @@
 part of 'settings.dart';
 
-/// {@template theme_scope_controller}
 /// A controller that holds and operates the app theme.
-/// {@endtemplate}
 abstract interface class ThemeScopeController {
   /// Get the current [AppTheme].
   AppTheme get theme;
@@ -17,9 +15,7 @@ abstract interface class ThemeScopeController {
   void setThemeSeedColor(Color color);
 }
 
-/// {@template locale_scope_controller}
 /// A controller that holds and operates the app locale.
-/// {@endtemplate}
 abstract interface class LocaleScopeController {
   /// Get the current [Locale]
   Locale get locale;
@@ -28,9 +24,7 @@ abstract interface class LocaleScopeController {
   void setLocale(Locale locale);
 }
 
-/// {@template settings_scope_controller}
 /// A controller that holds and operates the app settings.
-/// {@endtemplate}
 abstract interface class SettingsScopeController
     implements ThemeScopeController, LocaleScopeController {}
 
@@ -42,16 +36,13 @@ enum _SettingsScopeAspect {
   locale;
 }
 
-/// {@template settings_scope}
 /// Settings scope is responsible for handling settings-related stuff.
-///
 /// For example, it holds facilities to change
 /// - theme seed color
 /// - theme mode
 /// - locale
-/// {@endtemplate}
+
 class SettingsScope extends StatefulWidget {
-  /// {@macro settings_scope}
   const SettingsScope({
     required this.child,
     required this.settingsBloc,

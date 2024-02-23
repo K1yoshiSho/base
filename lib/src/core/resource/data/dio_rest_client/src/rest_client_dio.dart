@@ -2,11 +2,8 @@ import 'package:base_starter/src/core/resource/data/dio_rest_client/rest_client.
 import 'package:dio/dio.dart';
 import 'package:meta/meta.dart';
 
-/// {@template rest_client_dio}
 /// Rest client that uses [Dio] as HTTP library.
-/// {@endtemplate}
 final class RestClientDio extends RestClientBase {
-  /// {@macro rest_client_dio}
   RestClientDio({required super.baseUrl, required Dio dio}) : _dio = dio;
 
   final Dio _dio;

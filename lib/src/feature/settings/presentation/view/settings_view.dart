@@ -1,11 +1,8 @@
 part of '../settings.dart';
 
-class SettingsPage extends StatelessWidget {
-  /// {@macro sample_page}
-  const SettingsPage({super.key});
-
-  static const String name = "Settings";
-  static const String routePath = "settings";
+class SettingsView extends StatelessWidget {
+  final void Function() onTapAppVersion;
+  const SettingsView({required this.onTapAppVersion, super.key});
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -14,7 +11,7 @@ class SettingsPage extends StatelessWidget {
           slivers: [
             SliverAppBar(
               leading: IconButton(
-                onPressed: () => Navigator.of(context).pop(),
+                onPressed: () => context.pop(),
                 icon: const Icon(
                   Icons.arrow_back,
                 ),
@@ -93,7 +90,7 @@ class SettingsPage extends StatelessWidget {
                     child: Theme(
                       data: context.theme.copyWith(
                         cardTheme: CardTheme(
-                          color: context.theme.colorScheme.surface,
+                          color: context.theme.colorScheme.primaryContainer,
                           elevation: 0,
                         ),
                         colorScheme: context.theme.colorScheme.copyWith(
@@ -106,6 +103,55 @@ class SettingsPage extends StatelessWidget {
                         margin: EdgeInsets.all(8),
                       ),
                     ),
+                  ),
+                ],
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Column(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      onTapAppVersion();
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          '${context.l10n.app_version}: ',
+                          style: context.theme.textTheme.titleMedium?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: context.theme.colorScheme.onBackground,
+                          ),
+                        ),
+                        Text(
+                          context.dependencies.packageInfo.version,
+                          style: context.theme.textTheme.titleMedium?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: context.theme.colorScheme.onBackground,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        '${context.l10n.build_version}: ',
+                        style: context.theme.textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: context.theme.colorScheme.onBackground,
+                        ),
+                      ),
+                      Text(
+                        context.dependencies.packageInfo.buildNumber,
+                        style: context.theme.textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: context.theme.colorScheme.onBackground,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),

@@ -1,5 +1,9 @@
 import 'package:base_starter/src/core/localization/localization.dart';
 import 'package:base_starter/src/core/utils/extensions/colors_extension.dart';
+import 'package:base_starter/src/feature/initialization/logic/base_config.dart';
+import 'package:base_starter/src/feature/initialization/model/dependencies.dart';
+import 'package:base_starter/src/feature/initialization/widget/dependencies_scope.dart';
+import 'package:base_starter/src/feature/initialization/widget/environment_scope.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -76,6 +80,10 @@ extension ContextExtension on BuildContext {
   bool get isWindows => Theme.of(this).platform == TargetPlatform.windows;
 
   bool get isWeb => kIsWeb;
+
+  Dependencies get dependencies => DependenciesScope.of(this);
+
+  BaseConfig get config => EnvironmentScope.of(this);
 }
 
 extension ColorsThemeData on ThemeData {

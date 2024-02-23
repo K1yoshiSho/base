@@ -1,11 +1,9 @@
 import 'package:base_starter/src/feature/settings/bloc/settings_bloc.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-/// {@template dependencies}
 /// Dependencies container
-/// {@endtemplate}
 base class Dependencies {
-  /// {@macro dependencies}
   Dependencies();
 
   /// Shared preferences
@@ -13,20 +11,18 @@ base class Dependencies {
 
   /// Settings bloc
   late final SettingsBloc settingsBloc;
+
+  /// Package info
+  late final PackageInfo packageInfo;
 }
 
-/// {@template dependencies}
 /// Repositories container
-/// {@endtemplate}
 base class Repositories {
   Repositories();
 }
 
-/// {@template initialization_result}
 /// Result of initialization
-/// {@endtemplate}
 final class InitializationResult {
-  /// {@macro initialization_result}
   const InitializationResult({
     required this.dependencies,
     required this.repositories,

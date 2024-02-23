@@ -2,11 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart' show ThemeMode;
 
-/// {@template theme_mode_codec}
-/// Codec for [ThemeMode]
-/// {@endtemplate}
+/// Codec for `ThemeMode`
 final class ThemeModeCodec extends Codec<ThemeMode, String> {
-  /// {@macro theme_mode_codec}
   const ThemeModeCodec();
 
   @override

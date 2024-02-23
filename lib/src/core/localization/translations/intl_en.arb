@@ -145,5 +145,18 @@
    "not_found": "not found",
    "go_to_home": "Go back to the main page",
    "refresh": "Refresh",
-   "fix": "Report"
+   "fix": "Report",
+   "clear_cache": "Clear cache",
+   "cache_cleared": "Cache cleared",
+   "error_cache_clearing": "Error on clearing cache",
+   "app_version": "App version",
+   "build_version": "Build version",
+   "change_environment": "Change current environment",
+   "go_to_logger": "Go to logger",
+   "environment_tap_number": "To open the dialog, it remains: {number}",
+   "@environment_tap_number": {
+      "placeholders": {
+         "number": {}
+      }
+   }
 }

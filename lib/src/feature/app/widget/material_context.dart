@@ -1,18 +1,15 @@
 import 'package:base_starter/src/core/localization/localization.dart';
 import 'package:base_starter/src/core/router/router.dart';
 import 'package:base_starter/src/core/views/widgets/other/feedback_body.dart';
+import 'package:base_starter/src/feature/initialization/widget/environment_scope.dart';
 import 'package:base_starter/src/feature/settings/presentation/settings.dart';
 import 'package:feedback_plus/feedback_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
-/// {@template material_context}
 /// [MaterialContext] is an entry point to the material context.
-///
 /// This widget sets locales, themes and routing.
-/// {@endtemplate}
 class MaterialContext extends StatelessWidget {
-  /// {@macro material_context}
   const MaterialContext({required this.routerConfig, super.key});
 
   final GoRouter routerConfig;
@@ -25,6 +22,7 @@ class MaterialContext extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = SettingsScope.themeOf(context).theme;
     final locale = SettingsScope.localeOf(context).locale;
+    final config = EnvironmentScope.of(context);
 
     return BetterFeedback(
       themeMode: theme.mode,
@@ -68,8 +66,8 @@ class MaterialContext extends StatelessWidget {
       ),
       child: MaterialApp.router(
         key: _globalKey,
-        title: 'Base',
-        onGenerateTitle: (context) => "Base",
+        title: config.appName,
+        onGenerateTitle: (context) => config.appName,
         theme: theme.lightTheme,
         darkTheme: theme.darkTheme,
         themeMode: theme.mode,

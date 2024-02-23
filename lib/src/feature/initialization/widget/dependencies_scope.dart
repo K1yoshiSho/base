@@ -4,11 +4,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-/// {@template dependencies_scope}
 /// A widget which is responsible for providing the dependencies.
-/// {@endtemplate}
 class DependenciesScope extends InheritedWidget {
-  /// {@macro dependencies_scope}
   const DependenciesScope({
     required super.child,
     required this.dependencies,

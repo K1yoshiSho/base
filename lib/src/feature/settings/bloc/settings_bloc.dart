@@ -61,11 +61,9 @@ sealed class SettingsEvent with _$SettingsEvent {
   }) = _UpdateLocaleSettingsEvent;
 }
 
-/// {@template settings_bloc}
 /// A [Bloc] that handles the settings.
-/// {@endtemplate}
+
 final class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
-  /// {@macro settings_bloc}
   SettingsBloc({
     required LocaleRepository localeRepository,
     required ThemeRepository themeRepository,

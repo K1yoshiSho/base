@@ -3,13 +3,10 @@ import 'package:base_starter/src/core/configs/style/themes/light.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-/// {@template app_theme}
 /// An immutable class that holds properties needed
 /// to build a [ThemeData] for the app.
-/// {@endtemplate}
 @immutable
 final class AppTheme with Diagnosticable {
-  /// {@macro app_theme}
   AppTheme({required this.mode, required this.seed})
       : darkTheme = getBaseDarkTheme(seed: seed),
         lightTheme = getBaseLightTheme(seed: seed);
