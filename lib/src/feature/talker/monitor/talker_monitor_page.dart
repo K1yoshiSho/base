@@ -1,6 +1,6 @@
 // ignore_for_file: implementation_imports
 
-import 'package:base_starter/src/core/utils/extensions/context_extension.dart';
+import 'package:base_starter/src/common/utils/extensions/context_extension.dart';
 import 'package:base_starter/src/feature/talker/monitor/monitor_card.dart';
 import 'package:base_starter/src/feature/talker/monitor/monitor_info_page.dart';
 import 'package:base_starter/src/feature/talker/utils/get_data_color.dart';

@@ -1,7 +1,8 @@
 import 'dart:async';
 
-import 'package:base_starter/src/core/utils/talker_logger.dart';
-import 'package:base_starter/src/feature/app/logic/app_runner.dart';
+import 'package:base_starter/src/app/logic/app_runner.dart';
+import 'package:base_starter/src/common/utils/global_variables.dart';
+import 'package:base_starter/src/common/utils/talker_logger.dart';
 import 'package:base_starter/src/feature/initialization/logic/initialization_processor.dart';
 import 'package:base_starter/src/feature/initialization/model/dependencies.dart';
 import 'package:base_starter/src/feature/initialization/model/initialization_hook.dart';

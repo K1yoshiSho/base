@@ -1,5 +1,5 @@
-import 'package:base_starter/src/core/configs/dialogs/app_dialogs.dart';
-import 'package:base_starter/src/core/utils/extensions/context_extension.dart';
+import 'package:base_starter/src/common/ui/widgets/dialogs/toaster.dart';
+import 'package:base_starter/src/common/utils/extensions/context_extension.dart';
 import 'package:base_starter/src/feature/talker/utils/get_data_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -59,6 +59,6 @@ class TalkerMonitorLogsScreen extends StatelessWidget {
   }
 
   void _showSnackBar(BuildContext context, String text) {
-    AppDialogs.showToast(context, title: text);
+    Toaster.showToast(context, title: text);
   }
 }

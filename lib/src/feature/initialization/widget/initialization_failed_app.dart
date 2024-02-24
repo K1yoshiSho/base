@@ -1,4 +1,4 @@
-import 'package:base_starter/src/core/utils/extensions/context_extension.dart';
+import 'package:base_starter/src/common/utils/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 

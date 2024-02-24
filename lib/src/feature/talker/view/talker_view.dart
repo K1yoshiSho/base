@@ -1,13 +1,13 @@
 // ignore_for_file: implementation_imports
 
-import 'package:base_starter/src/core/configs/dialogs/app_dialogs.dart';
-import 'package:base_starter/src/core/utils/extensions/context_extension.dart';
+import 'package:base_starter/src/common/ui/widgets/dialogs/toaster.dart';
+import 'package:base_starter/src/common/utils/extensions/context_extension.dart';
 import 'package:base_starter/src/feature/talker/actions/actions_bottom_sheet.dart';
 import 'package:base_starter/src/feature/talker/monitor/talker_monitor_page.dart';
 import 'package:base_starter/src/feature/talker/utils/get_data_color.dart';
-import 'package:base_starter/src/feature/talker/widgets/data_card.dart';
-import 'package:base_starter/src/feature/talker/widgets/settings_bottom_sheet.dart';
-import 'package:base_starter/src/feature/talker/widgets/view_app_bar.dart';
+import 'package:base_starter/src/feature/talker/widget/data_card.dart';
+import 'package:base_starter/src/feature/talker/widget/settings_bottom_sheet.dart';
+import 'package:base_starter/src/feature/talker/widget/view_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:group_button/group_button.dart';
@@ -166,7 +166,7 @@ class _TalkerViewState extends State<TalkerView> {
   }
 
   void _showSnackBar(BuildContext context, String text) {
-    AppDialogs.showToast(context, title: text);
+    Toaster.showToast(context, title: text);
   }
 
   Future<void> _showActionsBottomSheet(BuildContext context) async {

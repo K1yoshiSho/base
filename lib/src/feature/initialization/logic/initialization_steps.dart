@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:base_starter/src/core/utils/constants.dart';
+import 'package:base_starter/src/common/configs/constants.dart';
 import 'package:base_starter/src/feature/initialization/model/environment.dart';
 import 'package:base_starter/src/feature/initialization/model/initialization_progress.dart';
 import 'package:base_starter/src/feature/settings/bloc/settings_bloc.dart';

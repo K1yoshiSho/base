@@ -1,6 +1,6 @@
 // ignore_for_file: implementation_imports
 
-import 'package:base_starter/src/core/utils/extensions/context_extension.dart';
+import 'package:base_starter/src/common/utils/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:talker_flutter/src/ui/widgets/base_card.dart';
 import 'package:talker_flutter/talker_flutter.dart';

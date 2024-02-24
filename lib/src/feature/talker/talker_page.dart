@@ -1,7 +1,8 @@
 import 'dart:io';
 
-import 'package:base_starter/src/core/router/router.dart';
-import 'package:base_starter/src/core/utils/extensions/context_extension.dart';
+import 'package:base_starter/src/app/router/router.dart';
+import 'package:base_starter/src/common/utils/extensions/context_extension.dart';
+import 'package:base_starter/src/common/utils/global_variables.dart';
 import 'package:base_starter/src/feature/talker/view/talker_view.dart' as view;
 import 'package:feedback_plus/feedback_plus.dart';
 import 'package:flutter/foundation.dart';
@@ -13,7 +14,6 @@ import 'package:talker_flutter/talker_flutter.dart';
 /// UI view for output of all Talker logs and errors
 class LoggerPage extends StatelessWidget {
   const LoggerPage({
-    required this.talker,
     super.key,
     this.appBarTitle = 'Logger',
     this.theme = const TalkerScreenTheme(),
@@ -27,9 +27,6 @@ class LoggerPage extends StatelessWidget {
   static const String paramTheme = "paramTheme";
   static const String paramTitle = "paramTitle";
   static const String paramItemBuilder = "paramItemBuilder";
-
-  /// Talker implementation
-  final Talker talker;
 
   /// Theme for customize [TalkerScreen]
   final TalkerScreenTheme theme;

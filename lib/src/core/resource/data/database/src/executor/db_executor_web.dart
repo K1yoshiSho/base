@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:base_starter/src/core/utils/talker_logger.dart';
+import 'package:base_starter/src/common/utils/global_variables.dart';
 import 'package:drift/drift.dart';
 import 'package:drift/wasm.dart';
 

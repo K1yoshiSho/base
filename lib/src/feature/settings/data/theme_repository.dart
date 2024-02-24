@@ -1,4 +1,4 @@
-import 'package:base_starter/src/feature/app/model/app_theme.dart';
+import 'package:base_starter/src/app/model/app_theme.dart';
 import 'package:base_starter/src/feature/settings/data/theme_datasource.dart';
 
 /// Theme repository that persists and retrieves theme information

@@ -1,11 +1,11 @@
 import 'package:base_starter/src/feature/initialization/model/environment.dart';
 
 /// Environment store
-class EnvironmentStore {
+final class EnvironmentStore {
   const EnvironmentStore();
 
   /// The environment.
-  Environment get environment {
+  static Environment get environment {
     var environment = const String.fromEnvironment('ENVIRONMENT');
 
     if (environment.isNotEmpty) {

@@ -1,4 +1,4 @@
-import 'package:base_starter/src/feature/app/model/app_theme.dart';
+import 'package:base_starter/src/app/model/app_theme.dart';
 import 'package:base_starter/src/feature/settings/data/locale_repository.dart';
 import 'package:base_starter/src/feature/settings/data/theme_repository.dart';
 import 'package:flutter/material.dart';

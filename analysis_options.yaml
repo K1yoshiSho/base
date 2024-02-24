@@ -5,6 +5,7 @@ analyzer:
     - "lib/src/core/localization/generated/**"
   errors:
     depend_on_referenced_packages: ignore
+    invalid_use_of_visible_for_testing_member: ignore
 linter:
   rules:
     public_member_api_docs: false
